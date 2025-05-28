@@ -1,0 +1,11 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 确保包含 Tailwind 指令和 HeroUI 样式 */
+@layer base {
+  html {
+    font-family: theme('fontFamily.sans');
+  }
+}

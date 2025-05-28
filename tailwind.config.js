@@ -1,0 +1,20 @@
+const {heroui} = require('@heroui/theme');
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    "./app/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
+    "./node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}"
+  ],
+  theme: {
+    extend: {
+      colors:{
+        primary: '#104862',    // 深蓝
+        icon: '#f2f2f2',       // Icon的颜色
+      }, 
+    },
+  },
+  darkMode: "class",
+  plugins: [heroui()],
+}
+
