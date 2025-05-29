@@ -3,23 +3,23 @@
 import React from "react";
 import NextLink from 'next/link';
 import { siteConfig } from '../config/site';
-import {
-  Button,
-  Input,
-  Modal,
-  ModalContent,
-  ModalHeader,
-  ModalBody,
-  ModalFooter,
-  Checkbox,
-  Link
-} from "@heroui/react";
-import {
-  SearchIcon,
-  EyeSlashFilledIcon,
-  EyeFilledIcon,
-  MailIcon,
-} from "../components/icons"
+// import {
+//   Button,
+//   Input,
+//   Modal,
+//   ModalContent,
+//   ModalHeader,
+//   ModalBody,
+//   ModalFooter,
+//   Checkbox,
+//   Link
+// } from "@heroui/react";
+// import {
+//   SearchIcon,
+//   EyeSlashFilledIcon,
+//   EyeFilledIcon,
+//   MailIcon,
+// } from "../components/icons"
 
 import { useDisclosure } from "@heroui/use-disclosure";
 

@@ -1,6 +1,6 @@
 "use client"
 
-import Image from "next/image";
+// import Image from "next/image";
 import { siteConfig } from "@/config/site";
 import {
   Image as HeroImage,
