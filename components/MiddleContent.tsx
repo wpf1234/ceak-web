@@ -140,7 +140,7 @@ export const MiddleContent = () => {
         />
         {/* 卡片内容层 */}
         <div className="w-full p-8 flex flex-col md:flex-row gap-6 relative z-10">
-          {siteConfig.services.map((s, idx) => (
+          {siteConfig.services.map((s) => (
             <Card
               key={s.title}
               className="flex-1 bg-white/10  flex flex-col items-center justify-between p-0 h-[320px] relative overflow-hidden group"
