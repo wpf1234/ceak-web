@@ -35,4 +35,14 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 
-![首页截图](Home.png)
+## Homepage Screenshots
+
+Here are some screenshots of the homepage effect:
+
+![Homepage Screenshot 1](Home-1.png)
+
+![Homepage Screenshot 2](Home-2.png)
+
+![Homepage Screenshot 3](Home-3.png)
+
+
