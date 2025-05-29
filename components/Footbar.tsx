@@ -2,8 +2,8 @@ import React from "react";
 
 export const FootBar = () => {
   return (
-    <footer className="bg-[#18506A] text-white pt-8 pb-4 font-[family-name:var(--font-han-sans)]">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between px-6">
+    <footer className="bg-primary text-white pt-8 pb-4 font-[family-name:var(--font-han-sans)]">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between px-4">
         {/* Logo & Title */}
         <div className="flex flex-col items-start mb-6 md:mb-0">
             <img
@@ -13,11 +13,11 @@ export const FootBar = () => {
             />
         </div>
         {/* Menu */}
-        <nav className="flex flex-col md:flex-row gap-4 md:gap-12 text-lg">
-          <a href="#" className="hover:underline hover:underline-offset-8">关于我们</a>
-          <a href="#" className="hover:underline hover:underline-offset-8">专业服务</a>
-          <a href="#" className="hover:underline hover:underline-offset-8">加入我们</a>
-          <a href="#" className="hover:underline hover:underline-offset-8">联系我们</a>
+        <nav className="flex flex-col md:flex-row gap-4 md:gap-6 text-lg text-bold ">
+          <a href="#" >关于我们</a>
+          <a href="#" >专业服务</a>
+          <a href="#" >加入我们</a>
+          <a href="#" >联系我们</a>
         </nav>
         {/* QR Code */}
         <div className="flex flex-col items-center mt-6 md:mt-0">
@@ -33,9 +33,9 @@ export const FootBar = () => {
       {/* 底部链接 */}
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-center px-6 text-sm">
         <div className="flex gap-8 mb-2 md:mb-0">
-          <a href="#" className="hover:underline hover:underline-offset-8">法律声明</a>
-          <a href="#" className="hover:underline hover:underline-offset-8">使用条款</a>
-          <a href="#" className="hover:underline hover:underline-offset-8">Cookie政策</a>
+          <a href="#" className="underline underline-offset-8">法律声明</a>
+          <a href="#" className="underline underline-offset-8">使用条款</a>
+          <a href="#" className="underline underline-offset-8">Cookie政策</a>
         </div>
       </div>
         <div className="flex flex-col md:flex-row text-gray-300 justify-center text-xs mt-20">

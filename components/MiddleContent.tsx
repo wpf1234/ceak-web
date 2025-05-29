@@ -37,16 +37,18 @@ export const MiddleContent = () => {
   return (
     <div className="w-full max-w-7xl mx-auto flex flex-col gap-16">
       {/* 上：轮播卡片+面包屑 */}
-      <section className="w-full flex flex-col gap-6 mt-5">
+      <section className="w-full flex flex-col gap-6 mt-5 pr-10">
         {/* 轮播卡片（此处用静态图片+左右箭头占位，后续可替换为轮播组件） */}
         <div className="w-full flex items-center gap-1 min-h-[320px] md:min-h-[400px] lg:min-h-[480px]">
-          {/* <button 
-            className="text-3xl text-gray-400 hover:text-primary transition-colors duration-300"
-            onClick={() => handlePrevSlide()}
+          <Button
+          className="text-3xl text-gray-400 bg-transparent hover:text-primary transition-colors duration-300"
+          onPress={() => handlePrevSlide()}
+          isIconOnly
           >
+            {/* 这里可以替换成一个向左的Icon */}
             {'<'}
-          </button> */}
-          <div className="rounded-3xl overflow-hidden w-full h-[220px] md:h-[320px] lg:h-[400px] flex-shrink-0 shadow-lg relative">
+          </Button>
+          <div className="rounded-3xl overflow-hidden w-full h-[220px] md:h-[320px] lg:h-[400px] flex-shrink-0 relative">
             <div 
               className="flex transition-transform duration-500 ease-in-out h-full"
               style={{ transform: `translateX(-${currentSlide * 100}%)` }}
@@ -101,12 +103,14 @@ export const MiddleContent = () => {
               ))}
             </div>
           </div>
-          {/* <button 
-            className="text-3xl text-gray-400 hover:text-primary transition-colors duration-300"
-            onClick={() => handleNextSlide()}
+          <Button
+          className="text-3xl text-gray-400 bg-transparent hover:text-primary transition-colors duration-300"
+          onPress={() => handleNextSlide()}
+          isIconOnly
           >
+            {/* 这里可以替换成向右的一个Icon */}
             {'>'}
-          </button> */}
+          </Button>
         </div>
         {/* 面包屑 */}
         <div className="flex gap-3 mt-4 justify-center">
@@ -135,11 +139,12 @@ export const MiddleContent = () => {
           }}
         />
         {/* 卡片内容层 */}
-        <div className="w-full rounded-lg p-8 flex flex-col md:flex-row gap-6 relative z-10">
+        <div className="w-full p-8 flex flex-col md:flex-row gap-6 relative z-10">
           {siteConfig.services.map((s, idx) => (
             <Card
               key={s.title}
-              className="flex-1 bg-white/10 rounded-lg flex flex-col items-center justify-between p-0 h-[320px] relative overflow-hidden group"
+              className="flex-1 bg-white/10  flex flex-col items-center justify-between p-0 h-[320px] relative overflow-hidden group"
+              radius="none"
             >
               <div className="absolute inset-0 w-full h-full">
                 <HeroImage
@@ -148,6 +153,7 @@ export const MiddleContent = () => {
                   className="object-cover w-full h-full transition-all duration-300 group-hover:blur-sm"
                   width="100%"
                   height="100%"
+                  radius="none"
                 />
               </div>
               <CardFooter className="absolute bottom-4 w-[calc(100%_-_32px)] mx-4 justify-center border-1 border-white/20 overflow-hidden py-2 rounded-xl shadow z-10 bg-gray-200/90 backdrop-blur-sm">
@@ -189,73 +195,98 @@ export const MiddleContent = () => {
       </section>
 
       {/* 中下：关于CEAK */}
-      <section className="w-full flex flex-col md:flex-row items-center gap-8 mt-16 min-h-[320px] md:min-h-[400px] lg:min-h-[480px]">
-        {/* 左侧文字 */}
-        <div className="flex-1 flex flex-col justify-between h-full relative">
-          <div>
-            <h2 className="text-3xl font-bold mb-4 font-[family-name:var(--font-han-sans)]">关于CEAK</h2>
-            <p className="text-gray-700 text-base leading-relaxed">
-              专注于为教育机构和人工智能领域提供高价值的咨询与解决方案，涵盖AI课程建设、精品课程建设、教师AI赋能、教育数字化转型等服务。我们致力于推动教育创新，助力学校和企业实现高质量发展，助力教育行业数字化升级和创新能力提升。我们的专家团队拥有丰富的行业经验，致力于为客户提供科学的解决方案和持续的价值提升。
-            </p>
-          </div>
-          {/* 新增：了解更多按钮（黑色），左下角对齐 */}
-          <div className="mt-8 flex justify-start">
-            <button
-              className="group flex items-center border-2 border-black text-black font-bold px-6 py-2 rounded transition-colors duration-300 hover:bg-black/10
-                hover:text-black hover:border-black relative overflow-hidden self-start"
-              style={{ fontFamily: "var(--font-han-sans)" }}
-            >
-              <span className="flex items-center transition-transform duration-1000 group-hover:translate-x-4">
-                了解更多
-                <span className="ml-2">→</span>
-              </span>
-            </button>
-          </div>
-        </div>
-        {/* 右侧图片 */}
-        <div className="flex-1 flex justify-center items-center h-full">
-          <div className="rounded-3xl overflow-hidden w-[600px] h-[220px] md:h-[300px] lg:h-[380px] shadow flex items-center">
-            <HeroImage
-              src="/images/about.jpg"
-              alt="关于CEAK"
-              width="100%"
-              height={380}
-              className="object-cover w-full h-full"
-            />
-          </div>
-        </div>
-      </section>
+      <Card
+          shadow="sm"
+          fullWidth
+          className="w-full h-full flex-shrink-0"
+        >
+          <CardBody className="p-0">
+            <div className="flex h-full">
+              {/* 左侧文字区域 */}
+              <div className="flex-1 flex flex-col justify-between h-full relative pt-8 pl-8">
+                <div>
+                  <h2 className="text-3xl font-bold mb-4 font-[family-name:var(--font-han-sans)]">关于CEAK</h2>
+                  <p className="text-gray-700 text-base text-sm font-[family-name:var(--font-han-sans) leading-relaxed">
+                  专注于为高校提供人工智能领域的全方位咨询与解决方案，涵盖AI课程建设、精品课拍摄、教师赋能、应用规划及项目孵化等服务。我们汇聚教育、技术与产业专家，致力于推动AI与学科的深度融合，助力高校提升教学质量与科研创新能力，打造面向未来的教育新生态。思客咨询，以专业与创新陪伴高校共创卓越。
+                  </p>
+                </div>
+                {/* 新增：了解更多按钮（黑色），左下角对齐 */}
+                <div className="py-5 mt-24 flex justify-start">
+                  <button
+                    className="group flex items-center border-2 border-black text-black font-bold px-6 py-2 rounded transition-colors duration-300 hover:bg-black/10
+                      hover:text-black hover:border-black relative overflow-hidden self-start"
+                    style={{ fontFamily: "var(--font-han-sans)" }}
+                  >
+                    <span className="flex items-center transition-transform duration-1000 group-hover:translate-x-4">
+                      了解更多
+                      <span className="ml-2">→</span>
+                    </span>
+                  </button>
+                </div>
+              </div>
+
+              {/* 右侧图片区域*/}
+              <div className="flex-1 flex justify-end items-right h-full pl-8">
+                <div className="rounded-3xl overflow-hidden w-full h-full shadow flex items-end">
+                  <HeroImage
+                    src="/images/about.jpg"
+                    alt="关于CEAK"
+                    width="100%"
+                    height="100%"
+                    className="object-cover w-full h-full"
+                    radius="sm"
+                  />
+                </div>
+              </div>
+            </div>
+          </CardBody>
+        </Card>
 
       {/* 下：职业发展 */}
-      <section className="w-full flex flex-col md:flex-row items-center mt-8 min-h-[320px] md:min-h-[400px] lg:min-h-[480px]">
         {/* 左侧图片 */}
-        <div className="flex-1 flex justify-center items-center h-full">
-          <div className="rounded-3xl overflow-hidden w-[600px] h-[220px] md:h-[300px] lg:h-[380px] shadow flex items-center">
-            <HeroImage
-              src="/images/career.jpg"
-              alt="职业发展"
-              width="100%"
-              height={380}
-              className="object-cover w-full h-full"
-            />
-          </div>
-        </div>
-        {/* 右侧内容 */}
-        <div className="flex-1 flex flex-col justify-start h-full ml-10">
-          <div>
-            <div className="text-sm text-gray-500 font-[family-name:var(--font-han-sans)] mb-2">职业发展</div>
-            <h1 className="text-2xl font-bold mb-2 font-[family-name:var(--font-han-sans)]">用AI共创未来教育新篇章。</h1>
-            <p className="text-gray-700 text-base mb-6 font-[family-name:var(--font-han-sans)]">
-              促进公司、行业和社会的创新认知。
-            </p>
-          </div>
-          <div className="flex justify-end pt-20">
-            <Button className="bg-primary text-white px-6 py-2 rounded font-[family-name:var(--font-han-sans)] font-semibold text-sm shadow hover:bg-[#133d50]">
-              申请职业机会
-            </Button>
-          </div>
-        </div>
-      </section>
+        <Card
+          shadow="sm"
+          fullWidth
+          className="w-full h-full bg-gray-100 flex-shrink-0"
+          radius="none"
+        >
+          <CardBody className="p-0">
+            <div className="flex h-full">
+              {/* 左侧图片区域 */}
+              <div className="w-1/2 h-full overflow-hidden shadow">
+                <HeroImage
+                  src="/images/career.jpg"
+                  alt="职业发展"
+                  width="100%"
+                  height="100%"
+                  className="object-cover w-full h-full"
+                  radius="none"
+                />
+              </div>
+
+              {/* 右侧内容区域 */}
+              <div className="w-1/2 flex flex-col justify-start h-full ml-10 p-8">
+                <div>
+                  <div className="text-sm text-gray-500 font-[family-name:var(--font-han-sans)] mb-2">职业发展</div>
+                  <h1 className="text-2xl font-bold mb-2 font-[family-name:var(--font-han-sans)]">用AI共创未来教育新篇章。</h1>
+                  <p className="text-gray-700 text-base mb-6 font-[family-name:var(--font-han-sans)]">
+                    促进公司、行业和社会的创新认知
+                  </p>
+                </div>
+
+                <div className="flex justify-end mt-24 mr-5">
+                  <Button
+                    className="bg-primary text-tiny md:text-sm lg:text-base font-[family-name:var(--font-han-sans)] text-white"
+                    href="#"
+                    size="sm"
+                  >
+                    申请职业机会
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </CardBody>
+        </Card>
     </div>
   );
 } 
