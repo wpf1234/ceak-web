@@ -37,7 +37,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="light">
       <body
-        className={`${hanSans.variable} antialiased`}
+        className={`${hanSans.variable} antialiased pt-20`}
       >
         <Providers>
           {children}

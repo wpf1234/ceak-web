@@ -32,7 +32,7 @@ export const Header = () => {
 
   return (
 
-    <header className="bg-primary shadow">
+    <header className="bg-primary shadow fixed top-0 left-0 w-full z-50">
       <nav className="mx-auto flex max-w-7xl items-center justify-between p-4" aria-label="Global">
         {/* Logo */}
         <NextLink href="/" className="flex items-center">
