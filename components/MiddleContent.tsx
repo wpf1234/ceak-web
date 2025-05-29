@@ -114,7 +114,7 @@ export const MiddleContent = () => {
         </div>
         {/* 面包屑 */}
         <div className="flex gap-3 mt-4 justify-center">
-          {siteConfig.breadcrumbs.map((item, idx) => (
+          {siteConfig.breadcrumbs.map((item) => (
             <a
               key={item}
               // href={`/${encodeURIComponent(item)}`}
