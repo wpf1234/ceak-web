@@ -24,11 +24,11 @@ import { siteConfig } from '../config/site';
 import { useDisclosure } from "@heroui/use-disclosure";
 
 export const Header = () => {
-  const { isOpen, onOpen, onOpenChange} = useDisclosure();
+  // const { isOpen, onOpen, onOpenChange} = useDisclosure();
 
-  const [ isVisible, setIsVisible] = React.useState(false);
+  // const [ isVisible, setIsVisible] = React.useState(false);
 
-  const toggleVisibility = () => setIsVisible(!isVisible);
+  // const toggleVisibility = () => setIsVisible(!isVisible);
 
   return (
 
