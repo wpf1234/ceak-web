@@ -10,6 +10,7 @@ import {
   CardFooter,
 } from "@heroui/react";
 import { useState, useEffect } from "react";
+import { ChevronLeftIcon, ChevronRightIcon } from "./icons";
 
 export const MiddleContent = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -46,7 +47,8 @@ export const MiddleContent = () => {
           isIconOnly
           >
             {/* 这里可以替换成一个向左的Icon */}
-            {'<'}
+            {/* {'<'} */}
+            <ChevronLeftIcon className="w-8 h-8"/>
           </Button>
           <div className="rounded-3xl overflow-hidden w-full h-[220px] md:h-[320px] lg:h-[400px] flex-shrink-0 relative">
             <div 
@@ -109,7 +111,8 @@ export const MiddleContent = () => {
           isIconOnly
           >
             {/* 这里可以替换成向右的一个Icon */}
-            {'>'}
+            {/* {'>'} */}
+            <ChevronRightIcon className="w-8 h-8" />
           </Button>
         </div>
         {/* 面包屑 */}
@@ -195,69 +198,62 @@ export const MiddleContent = () => {
       </section>
 
       {/* 中下：关于CEAK */}
-      <Card
-          shadow="sm"
-          fullWidth
-          className="w-full h-full flex-shrink-0"
-        >
-          <CardBody className="p-0">
-            <div className="flex h-full">
-              {/* 左侧文字区域 */}
-              <div className="flex-1 flex flex-col justify-between h-full relative pt-8 pl-8">
-                <div>
-                  <h2 className="text-3xl font-bold mb-4 font-[family-name:var(--font-han-sans)]">关于CEAK</h2>
-                  <p className="text-gray-700 text-base text-sm font-[family-name:var(--font-han-sans) leading-relaxed">
-                  专注于为高校提供人工智能领域的全方位咨询与解决方案，涵盖AI课程建设、精品课拍摄、教师赋能、应用规划及项目孵化等服务。我们汇聚教育、技术与产业专家，致力于推动AI与学科的深度融合，助力高校提升教学质量与科研创新能力，打造面向未来的教育新生态。思客咨询，以专业与创新陪伴高校共创卓越。
-                  </p>
-                </div>
-                {/* 新增：了解更多按钮（黑色），左下角对齐 */}
-                <div className="py-5 mt-24 flex justify-start">
-                  <button
-                    className="group flex items-center border-2 border-black text-black font-bold px-6 py-2 rounded transition-colors duration-300 hover:bg-black/10
-                      hover:text-black hover:border-black relative overflow-hidden self-start"
-                    style={{ fontFamily: "var(--font-han-sans)" }}
-                  >
-                    <span className="flex items-center transition-transform duration-1000 group-hover:translate-x-4">
-                      了解更多
-                      <span className="ml-2">→</span>
-                    </span>
-                  </button>
-                </div>
-              </div>
-
-              {/* 右侧图片区域*/}
-              <div className="flex-1 flex justify-end items-right h-full pl-8">
-                <div className="rounded-3xl overflow-hidden w-full h-full shadow flex items-end">
-                  <HeroImage
-                    src="/images/about.jpg"
-                    alt="关于CEAK"
-                    width="100%"
-                    height="100%"
-                    className="object-cover w-full h-full"
-                    radius="sm"
-                  />
-                </div>
-              </div>
+      <section className="w-full flex flex-col md:flex-row items-center gap-8 mt-16">
+        <div className="flex h-full">
+          {/* 左侧文字区域 */}
+          <div className="flex-1 flex flex-col justify-between h-full relative">
+            <div>
+              <h2 className="text-3xl font-bold mb-4 font-[family-name:var(--font-han-sans)]">关于CEAK</h2>
+              <p className="text-gray-700 text-base text-sm font-[family-name:var(--font-han-sans)] leading-relaxed">
+                专注于为高校提供人工智能领域的全方位咨询与解决方案，涵盖AI课程建设、精品课拍摄、教师赋能、应用规划及项目孵化等服务。我们汇聚教育、技术与产业专家，致力于推动AI与学科的深度融合，助力高校提升教学质量与科研创新能力，打造面向未来的教育新生态。思客咨询，以专业与创新陪伴高校共创卓越。
+              </p>
             </div>
-          </CardBody>
-        </Card>
+            {/* 了解更多按钮 */}
+            <div className="py-5 mt-24 flex justify-start">
+              <button
+                className="group flex items-center border-2 border-black text-black font-bold px-6 py-2 rounded transition-colors duration-300 hover:bg-black/10
+                  hover:text-black hover:border-black relative overflow-hidden self-start"
+                style={{ fontFamily: "var(--font-han-sans)" }}
+              >
+                <span className="flex items-center transition-transform duration-1000 group-hover:translate-x-4">
+                  了解更多
+                  <span className="ml-2">→</span>
+                </span>
+              </button>
+            </div>
+          </div>
 
+          {/* 右侧图片区域 */}
+          <div className="flex-1 flex justify-center">
+            <HeroImage
+              src="/images/about.jpg"
+              alt="关于CEAK"
+              width="100%"
+              height="100%"
+              className="object-cover w-full h-full"
+              
+            />
+          </div>
+        </div>
+      </section>
+      
       {/* 下：职业发展 */}
+      <section className="w-full flex flex-col md:flex-row items-center bg-gray-100 gap-8 mt-5 mb-10">
         {/* 左侧图片 */}
-        <Card
+        {/* <Card
           shadow="sm"
           fullWidth
           className="w-full h-full bg-gray-100 flex-shrink-0"
           radius="none"
-        >
-          <CardBody className="p-0">
+        > */}
+          {/* <CardBody className="p-0"> */}
             <div className="flex h-full">
               {/* 左侧图片区域 */}
-              <div className="w-1/2 h-full overflow-hidden shadow">
+              <div className="flex flex-1 justifu-center shadow">
                 <HeroImage
                   src="/images/career.jpg"
                   alt="职业发展"
-                  width="100%"
+                  width={900}
                   height="100%"
                   className="object-cover w-full h-full"
                   radius="none"
@@ -265,7 +261,7 @@ export const MiddleContent = () => {
               </div>
 
               {/* 右侧内容区域 */}
-              <div className="w-1/2 flex flex-col justify-start h-full ml-10 p-8">
+              <div className="flex flex-1 flex-col justify-between h-full relative ml-5 p-8">
                 <div>
                   <div className="text-sm text-gray-500 font-[family-name:var(--font-han-sans)] mb-2">职业发展</div>
                   <h1 className="text-2xl font-bold mb-2 font-[family-name:var(--font-han-sans)]">用AI共创未来教育新篇章。</h1>
@@ -285,8 +281,9 @@ export const MiddleContent = () => {
                 </div>
               </div>
             </div>
-          </CardBody>
-        </Card>
+          {/* </CardBody> */}
+        {/* </Card> */}
+      </section>
     </div>
   );
 } 
