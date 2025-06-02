@@ -8,7 +8,7 @@ export default function Home() {
       {/* 顶部导航栏 */}
       <Header />
       {/* 中间内容区 */}
-      <main className="flex-1 px-4 py-8">
+      <main className="flex-1 px-4 py-24">
         {/* 这里放置公司的业务信息等内容 */}
         <MiddleContent/>
       </main>

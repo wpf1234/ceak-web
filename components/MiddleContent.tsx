@@ -7,10 +7,10 @@ import {
   Button,
   Card,
   CardBody,
-  CardFooter,
 } from "@heroui/react";
 import { useState, useEffect } from "react";
 import { ChevronLeftIcon, ChevronRightIcon } from "./icons";
+import { ServiceCards } from "./ServiceCards";
 
 export const MiddleContent = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -59,38 +59,39 @@ export const MiddleContent = () => {
                 <Card
                   key={item.img}
                   isBlurred
-                  shadow="sm"
+                  shadow="none"
                   fullWidth
                   className="w-full flex-shrink-0"
                 >
                   <CardBody className="p-0">
-                    <div className="flex h-full">
+                     {/* ✅ 响应式修改：轮播卡片主结构支持移动端纵排 */}
+                    <div className="flex flex-col md:flex-row w-full h-auto">
                       {/* 左侧图片区域 */}
-                      <div className="w-1/2 h-full">
+                      <div className="w-full md:w-1/2 max-h-[320px] md:max-h-full flex items-center justify-center bg-white">
                         <HeroImage
                           alt="banner"
-                          className="object-cover w-full h-full"
+                          className="object-contain w-full h-auto max-h-full"
                           height={400}
-                          shadow="md"
+                          shadow="none"
                           src={item.img}
                           width="100%"
                         />
                       </div>
                       
                       {/* 右侧内容区域 */}
-                      <div className="w-1/2 flex flex-col justify-between p-8">
+                      <div className="w-full md:w-1/2 flex flex-col justify-between p-6 overflow-visible">
                         <div>
-                          <h1 className="font-[family-name:var(--font-han-sans)] text-xl md:text-2xl lg:text-3xl font-bold">
+                          <h1 className="text-lg md:text-2xl lg:text-3xl font-bold font-[family-name:var(--font-han-sans)]">
                             {item.title1} <br />{item.title2}
                           </h1>
-                          <p className="text-small md:text-base lg:text-lg font-[family-name:var(--font-han-sans)] mt-4 text-gray-600">
+                          <p className="text-sm md:text-base lg:text-lg text-gray-600 mt-4 font-[family-name:var(--font-han-sans)]">
                             {item.content}
                           </p>
                         </div>
                         
-                        <div className="flex justify-end">
+                        <div className="flex justify-end mt-4">
                           <Button
-                            className="bg-primary text-tiny md:text-sm lg:text-base font-[family-name:var(--font-han-sans)] text-white"
+                            className="bg-primary text-sm md:text-base font-[family-name:var(--font-han-sans)] text-white"
                             href="#"
                             radius="full"
                             size="sm"
@@ -115,91 +116,37 @@ export const MiddleContent = () => {
             <ChevronRightIcon className="w-8 h-8" />
           </Button>
         </div>
-        {/* 面包屑 */}
-        <div className="flex gap-3 mt-4 justify-center">
-          {siteConfig.breadcrumbs.map((item) => (
-            <a
-              key={item}
-              // href={`/${encodeURIComponent(item)}`}
-              className="px-4 py-1 rounded-full bg-gray-100 text-gray-700 text-sm font-medium transition-all duration-300 hover:bg-primary hover:text-white hover:scale-105 cursor-pointer"
-            >
-              {item}
-            </a>
-          ))}
+        {/* ✅ CEAK聚焦导航栏：模仿 BCG 样式，紧凑居中显示 */}
+        <div className="w-1/2 md:w-1/2 mx-auto mt-4">
+          <div className=" w-full bg-white rounded-2xl shadow border px-6 py-3 flex flex-col md:flex-row items-center justify-center gap-y-2 md:gap-x-8">
+            {/* 左侧标题 */}
+            <div className="text-xs text-gray-500 uppercase tracking-widest font-medium whitespace-nowrap">
+              CEAK聚焦
+            </div>
+
+            {/* 右侧链接组 */}
+            <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-1 whitespace-nowrap overflow-x-auto">
+              {siteConfig.breadcrumbs.map((item) => (
+                <a
+                  key={item}
+                  href="#"
+                  className="text-sm font-bold uppercase text-black border-b-2 border-black/80 hover:border-primary transition-all cursor-pointer"
+                >
+                  {item}
+                </a>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
       {/* 中上：服务卡片 */}
-      <section className="w-full flex flex-col gap-6 relative">
-        <h1 className="text-3xl font-bold font-[family-name:var(--font-han-sans)] mb-4 z-10">探索我们的服务</h1>
-        {/* 梯形背景层 */}
-        <div
-          className="absolute left-0 top-8 w-full pointer-events-none bg-primary mt-10"
-          style={{
-            zIndex: 0,
-            height: "min(500px, 40vw)",
-            clipPath: "polygon(0 0, 100% 0, 100% 90%, 0 100%)",
-          }}
-        />
-        {/* 卡片内容层 */}
-        <div className="w-full p-8 flex flex-col md:flex-row gap-6 relative z-10">
-          {siteConfig.services.map((s) => (
-            <Card
-              key={s.title}
-              className="flex-1 bg-white/10  flex flex-col items-center justify-between p-0 h-[320px] relative overflow-hidden group"
-              radius="none"
-            >
-              <div className="absolute inset-0 w-full h-full">
-                <HeroImage
-                  src={s.img}
-                  alt={s.title}
-                  className="object-cover w-full h-full transition-all duration-300 group-hover:blur-sm"
-                  width="100%"
-                  height="100%"
-                  radius="none"
-                />
-              </div>
-              <CardFooter className="absolute bottom-4 w-[calc(100%_-_32px)] mx-4 justify-center border-1 border-white/20 overflow-hidden py-2 rounded-xl shadow z-10 bg-gray-200/90 backdrop-blur-sm">
-                <p className="text-center text-black font-bold text-lg">{s.title}</p>
-              </CardFooter>
-              
-              {/* 悬浮时显示的内容 */}
-              <div className="absolute inset-0 w-full h-full bg-gray-200/90 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-full group-hover:translate-y-0 z-20">
-                <div className="p-6 h-full flex flex-col justify-between">
-                  <div>
-                    <h3 className="text-xl font-bold mb-4 text-left">{s.title}</h3>
-                    <p className="text-gray-600 text-sm text-left line-clamp-4">{s.desc}</p>
-                  </div>
-                  <div className="flex justify-end">
-                    <Button
-                      className="bg-primary text-white px-4 py-2 rounded-full text-sm hover:bg-primary/90 transition-colors"
-                    >
-                      了解更多
-                    </Button>
-                  </div>
-                </div>
-              </div>
-            </Card>
-          ))}
-        </div>
-        {/* 新增：了解更多按钮，左对齐 */}
-        <div className="mt-1 pl-8 ml-8">
-          <button
-            className="group flex items-center border-2 border-white text-white font-bold px-6 py-2 rounded transition-colors duration-300 hover:bg-white/10
-              hover:text-white hover:border-white relative overflow-hidden self-start -ml-8"
-            style={{ fontFamily: "var(--font-han-sans)" }}
-          >
-            <span className="flex items-center transition-transform duration-1000 group-hover:translate-x-4">
-              了解更多
-              <span className="ml-2">→</span>
-            </span>
-          </button>
-        </div>
-      </section>
+      <ServiceCards />
 
       {/* 中下：关于CEAK */}
-      <section className="w-full flex flex-col md:flex-row items-center gap-8 mt-16">
-        <div className="flex h-full">
+      <section className="w-full flex flex-col md:flex-row items-center gap-8 mt-32">
+        {/* ✅ 响应式修改：主结构支持手机端纵排 */}
+        <div className="flex h-full flex-col md:flex-row gap-6">
           {/* 左侧文字区域 */}
           <div className="flex-1 flex flex-col justify-between h-full relative">
             <div>
@@ -209,7 +156,7 @@ export const MiddleContent = () => {
               </p>
             </div>
             {/* 了解更多按钮 */}
-            <div className="py-5 mt-24 flex justify-start">
+            {/* <div className="py-5 mt-24 flex justify-start">
               <button
                 className="group flex items-center border-2 border-black text-black font-bold px-6 py-2 rounded transition-colors duration-300 hover:bg-black/10
                   hover:text-black hover:border-black relative overflow-hidden self-start"
@@ -220,11 +167,36 @@ export const MiddleContent = () => {
                   <span className="ml-2">→</span>
                 </span>
               </button>
+            </div> */}
+            <div className="py-5 mt-24 flex justify-start">
+              <button
+                  className="group flex items-center border-2 border-black text-black font-bold px-6 py-2 rounded transition-colors duration-300 hover:bg-black/10
+                  hover:text-black hover:border-black relative overflow-hidden self-start"
+                  style={{ fontFamily: "var(--font-han-sans)" }}
+              >
+                  {/* ✅ 动画容器 */}
+                  <span className="block relative w-full overflow-hidden">
+                  {/* 默认状态：了解更多 → */}
+                  <span className="flex items-center justify-center gap-2 transition-transform duration-500 group-hover:translate-x-full">
+                      了解更多
+                      {/* <ArrowRight className="w-4 h-4" /> */}
+                      <span className="ml-2">→</span>
+                  </span>
+
+                  {/* 悬停状态：→ 了解更多 */}
+                  <span className="flex items-center justify-center gap-2 absolute top-0 left-0 w-full transition-transform duration-500 translate-x-[-100%] group-hover:translate-x-0">
+                      {/* <ArrowRight className="w-4 h-4" /> */}
+                      <span className="mr-2">→</span>
+                      了解更多
+                  </span>
+                  </span>
+              </button>
             </div>
           </div>
 
           {/* 右侧图片区域 */}
-          <div className="flex-1 flex justify-center">
+          {/* ✅ 响应式修改：图片上移以适配竖排 */}
+          <div className="flex-1 flex justify-center mt-4 md:mt-0">
             <HeroImage
               src="/images/about.jpg"
               alt="关于CEAK"
@@ -238,7 +210,8 @@ export const MiddleContent = () => {
       </section>
       
       {/* 下：职业发展 */}
-      <section className="w-full flex flex-col md:flex-row items-center bg-gray-100 gap-8 mt-5 mb-10">
+      {/* ✅ 响应式修改：主结构支持手机端纵排 */}
+      <section className="w-full flex flex-col md:flex-row items-center bg-gray-100 gap-8 mt-5 mb-10 px-4 md:px-0">
         {/* 左侧图片 */}
         {/* <Card
           shadow="sm"
@@ -247,7 +220,7 @@ export const MiddleContent = () => {
           radius="none"
         > */}
           {/* <CardBody className="p-0"> */}
-            <div className="flex h-full">
+            <div className="flex flex-col md:flex-row h-full w-full">
               {/* 左侧图片区域 */}
               <div className="flex flex-1 justifu-center shadow">
                 <HeroImage
@@ -261,16 +234,17 @@ export const MiddleContent = () => {
               </div>
 
               {/* 右侧内容区域 */}
-              <div className="flex flex-1 flex-col justify-between h-full relative ml-5 p-8">
+              {/* ✅ 响应式修改：内容区域适配手机端纵排 */}
+              <div className="flex flex-1 flex-col justify-between h-full relative md:ml-5 ml-0 px-4 py-6 md:p-8">
                 <div>
-                  <div className="text-sm text-gray-500 font-[family-name:var(--font-han-sans)] mb-2">职业发展</div>
-                  <h1 className="text-2xl font-bold mb-2 font-[family-name:var(--font-han-sans)]">用AI共创未来教育新篇章。</h1>
-                  <p className="text-gray-700 text-base mb-6 font-[family-name:var(--font-han-sans)]">
+                  <div className="text-base text-gray-500 font-[family-name:var(--font-han-sans)] mt-20">职业发展</div>
+                  <h1 className="text-5xl font-bold mt-10  font-[family-name:var(--font-han-sans)]">用AI共创未来教育新篇章</h1>
+                  <p className="text-gray-700 text-2xl mt-9  font-[family-name:var(--font-han-sans)]">
                     促进公司、行业和社会的创新认知
                   </p>
                 </div>
 
-                <div className="flex justify-end mt-24 mr-5">
+                <div className="flex justify-end mt-36 mr-2 mb-10">
                   <Button
                     className="bg-primary text-tiny md:text-sm lg:text-base font-[family-name:var(--font-han-sans)] text-white"
                     href="#"

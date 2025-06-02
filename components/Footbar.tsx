@@ -3,21 +3,21 @@ import React from "react";
 export const FootBar = () => {
   return (
     <footer className="bg-primary text-white pt-8 pb-4 font-[family-name:var(--font-han-sans)]">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between px-4">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between px-6">
         {/* Logo & Title */}
-        <div className="flex flex-col items-start mb-6 md:mb-0">
-            <img
+        <div className="flex flex-col items-center mb-6 md:mb-0 w-1/3 flex-shrink-0">
+          <img
             src="/logo-thin.svg"
-            alt="思客咨询 eak Consulting"
-            className="h-20 w-auto"
-            />
+            alt="思客咨询 ceak Consulting"
+            className="w-80 h-44 md:w-80 md:h-44 object-contain" 
+          />
         </div>
         {/* Menu */}
-        <nav className="flex flex-col md:flex-row gap-4 md:gap-6 text-lg text-bold ">
-          <a href="#" >关于我们</a>
-          <a href="#" >专业服务</a>
-          <a href="#" >加入我们</a>
-          <a href="#" >联系我们</a>
+        <nav className="flex flex-col md:flex-row gap-4 md:gap-6 text-lg font-bold justify-start flex-1 ml-10">
+          <a href="#">关于我们</a>
+          <a href="#">专业服务</a>
+          <a href="#">加入我们</a>
+          <a href="#">联系我们</a>
         </nav>
         {/* QR Code */}
         <div className="flex flex-col items-center mt-6 md:mt-0">
@@ -28,6 +28,7 @@ export const FootBar = () => {
           <span className="text-xs text-gray-200 mt-2">关注CEAK，随时随地了解新动态</span>
         </div>
       </div>
+      {/* 修改 */}
       {/* 分割线 */}
       <div className="max-w-7xl mx-auto border-t border-gray-400 my-6" />
       {/* 底部链接 */}
@@ -38,9 +39,11 @@ export const FootBar = () => {
           <a href="#" className="underline underline-offset-8">Cookie政策</a>
         </div>
       </div>
-        <div className="flex flex-col md:flex-row text-gray-300 justify-center text-xs mt-20">
-          © 2025 Ceak. All rights reserved. 思客咨询（云南）有限公司 云ICP备xxxxxxxx号-x 云公网安备
-        </div>
-    </footer>
+      <div className="flex flex-col md:flex-row text-gray-300 justify-center text-xs mt-20">
+        © 2025 Ceak. All rights reserved. 思客咨询（云南）有限公司 云ICP备xxxxxxxx号-x 云公网安备
+      </div>
+  </footer>
+
+  
   );
 };

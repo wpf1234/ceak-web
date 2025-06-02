@@ -46,7 +46,7 @@ export const siteConfig = {
     ],
     // 面包屑内容
     breadcrumbs: [
-        "CEAK聚焦", 
+        // "CEAK聚焦", 
         "人工智能", 
         "教育革新", 
         "课程建设"

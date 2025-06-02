@@ -1,18 +1,8 @@
 import type { Metadata } from "next";
-// import { Geist, Geist_Mono } from "next/font/google";
 import localFont from 'next/font/local';
 import "./globals.css";
 import { Providers } from "./providers";
 
-// const geistSans = Geist({
-//   variable: "--font-geist-sans",
-//   subsets: ["latin"],
-// });
-
-// const geistMono = Geist_Mono({
-//   variable: "--font-geist-mono",
-//   subsets: ["latin"],
-// });
 
 const hanSans = localFont({
   src:[
@@ -37,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="light">
       <body
-        className={`${hanSans.variable} antialiased pt-20`}
+        className={`${hanSans.variable} antialiased pt-20 min-w-[260px]`}
       >
         <Providers>
           {children}

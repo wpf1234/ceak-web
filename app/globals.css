@@ -9,3 +9,7 @@
     font-family: theme('fontFamily.sans');
   }
 }
+
+html, body, #__next {
+  min-width: 260px; /* 与 logo 最大宽度保持一致 */
+}
