@@ -5,8 +5,6 @@ import NextLink from 'next/link';
 import { siteConfig } from '../config/site';
 import {
   Navbar,
-  NavbarBrand,
-  NavbarContent,
   NavbarMenuToggle,
   NavbarMenu,
   NavbarMenuItem,
