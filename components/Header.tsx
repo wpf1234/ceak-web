@@ -137,7 +137,7 @@ export const Header = () => {
     //     </div> */}
 
 
-    <div className={`fixed flex items-center justify-between top-0 left-0 right-0 z-50 h-32 transition-colors duration-300 ${isScrolled ? 'bg-white' : 'bg-primary'}`}>
+    <div className={`fixed flex items-center justify-between top-0 left-0 right-0 z-50 h-20 transition-colors duration-300 ${isScrolled ? 'bg-white' : 'bg-primary'}`}>
       <Navbar
         onMenuOpenChange={setIsMenuOpen}
         className="h-full w-full"
@@ -149,7 +149,7 @@ export const Header = () => {
             <img
               src={isScrolled ? "/logo-deep.svg" : "/logo-thin.svg"}
               alt="思客咨询 ceak Consulting"
-              className="h-32 w-auto max-w-[250px] mx-auto transition-all duration-300"
+              className="h-20 w-auto max-w-[220px] mx-auto transition-all duration-300"
             />
           </NextLink>
         </div>
@@ -174,11 +174,11 @@ export const Header = () => {
           />
         </div>
         {/* 折叠菜单内容 */}
-        <NavbarMenu className="mt-20">
+        <NavbarMenu className="pt-12">
           {siteConfig.navItems.map((item, index) => (
             <NavbarMenuItem key={`${item}-${index}`}>
               <NextLink
-                className="w-full"
+                className="w-full text-tc font-[family-name:var(--font-han-sans)] font-normal text-2xl "
                 color={
                   index === 2
                   ? "primary"

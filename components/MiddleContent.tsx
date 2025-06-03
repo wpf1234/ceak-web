@@ -37,9 +37,9 @@ export const MiddleContent = () => {
 
   return (
     <div className="w-full max-w-7xl mx-auto flex flex-col gap-16">
-      {/* 上：轮播卡片+面包屑 */}
+      {/* 上：轮播卡片 */}
       <section className="w-full flex flex-col gap-6 mt-5 pr-10">
-        {/* 轮播卡片（此处用静态图片+左右箭头占位，后续可替换为轮播组件） */}
+        {/* 轮播卡片 */}
         <div className="w-full flex items-center gap-1 min-h-[320px] md:min-h-[400px] lg:min-h-[480px]">
           <Button
           className="text-3xl text-gray-400 bg-transparent hover:text-primary transition-colors duration-300"
