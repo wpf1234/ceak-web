@@ -8,6 +8,8 @@ import {
   NavbarMenuToggle,
   NavbarMenu,
   NavbarMenuItem,
+  NavbarContent,
+  NavbarItem,
 } from "@heroui/react";
 // import {
 //   Button,
@@ -36,31 +38,18 @@ export const Header = () => {
 
   // const toggleVisibility = () => setIsVisible(!isVisible);
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const [isScrolled, setIsScrolled] = React.useState(false);
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
 
-    // <header className="bg-primary shadow fixed top-0 left-0 w-full z-50">
-    //   <nav className="mx-auto flex max-w-7xl items-center justify-between p-4" aria-label="Global">
-    //     {/* Logo */}
-    //     <NextLink href="/" className="flex items-center">
-    //       <img
-    //         src="/logo-thin.svg"
-    //         alt="思客咨询 eak Consulting"
-    //         className="h-10 w-auto"
-    //       />
-    //     </NextLink>
-    //     {/* Navigation Items */}
-    //     <div className="flex gap-8">
-    //       {siteConfig.navItems.map((item) => (
-    //         <NextLink
-    //           key={item.label}
-    //           href={item.href}
-    //           className="font-[family-name:var(--font-han-sans)] text-white transition-colors font-normal hover:font-bold hover:underline hover:decoration-white hover:underline-offset-8"
-    //         >
-    //           {item.label}
-    //         </NextLink>
-    //       ))}
-    //     </div>
     //     {/* 搜索以及登录按钮 */}
     //     {/* <div className="flex items-center gap-4">
     //       <Input
@@ -146,68 +135,64 @@ export const Header = () => {
     //         </ModalContent>
     //       </Modal>
     //     </div> */}
-    //   </nav>
-    // </header>
-    <Navbar 
-      onMenuOpenChange={setIsMenuOpen} 
-      className="bg-primary fixed top-0 left-0 right-0 z-50 h-32"
-      style={{ minWidth: "260px" }} // 确保全局最小宽度
-    >
-      {/* 内部容器：三栏布局 */}
-      <div className="w-full max-w-7xl mx-auto flex items-center justify-between px-8 md:px-10 py-4">
-        
+
+
+    <div className={`fixed flex items-center justify-between top-0 left-0 right-0 z-50 h-32 transition-colors duration-300 ${isScrolled ? 'bg-white' : 'bg-primary'}`}>
+      <Navbar
+        onMenuOpenChange={setIsMenuOpen}
+        className="h-full w-full"
+        style={{ minWidth: '360px', background: 'transparent' }}
+      >
         {/* 左侧 Logo */}
-        <div className="flex-shrink-0">
-          <NextLink href="/" className="flex items-center">
+        <div className="absolute left-0 h-full flex items-center" style={{ minWidth: '200px' }}>
+          <NextLink href="/" className="flex items-center w-full justify-between">
             <img
-              src="/logo-thin.svg"
+              src={isScrolled ? "/logo-deep.svg" : "/logo-thin.svg"}
               alt="思客咨询 ceak Consulting"
-              className="h-28 w-auto max-w-[169px]"
+              className="h-32 w-auto max-w-[250px] mx-auto transition-all duration-300"
             />
           </NextLink>
         </div>
-
         {/* 中间横排菜单：绝对居中 */}
-        <div className="absolute left-1/2 transform -translate-x-1/2 hidden lg:flex gap-8 whitespace-nowrap">
+        <NavbarContent className="absolute left-1/2 transform -translate-x-1/2 hidden lg:flex gap-8 whitespace-nowrap">
           {siteConfig.navItems.map((item) => (
-            <NextLink
-              key={item.label}
-              href={item.href}
-              className="font-[family-name:var(--font-han-sans)] text-white text-xl transition-colors font-normal hover:font-bold hover:underline hover:decoration-white hover:underline-offset-8"
-            >
-              {item.label}
-            </NextLink>
+            <NavbarItem key={item.label}>
+              <NextLink
+                href={item.href}
+                className={`font-[family-name:var(--font-han-sans)] text-xl transition-colors font-normal hover:font-bold hover:underline hover:underline-offset-8 ${isScrolled ? 'text-black hover:decoration-black' : 'text-white hover:decoration-white'}`}
+              >
+                {item.label}
+              </NextLink>
+            </NavbarItem>
           ))}
-        </div>
-
+        </NavbarContent>
         {/* 汉堡按钮 */}
-        <div className="flex-shrink-0">
+        <div className="absolute right-0 h-full flex items-center pr-6">
           <NavbarMenuToggle
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-            className="lg:hidden text-white"
+            className={`lg:hidden transition-colors ${isScrolled ? 'text-black' : 'text-white'}`}
           />
         </div>
-      </div>
-
-      {/* 折叠菜单内容 */}
-      <NavbarMenu className="mt-20">
-        {siteConfig.navItems.map((item, index) => (
-          <NavbarMenuItem key={`${item}-${index}`}>
-            <NextLink
-              className="w-full"
-              color={
-                index === 2 
-                ? "primary" 
-                : index === siteConfig.navItems.length - 1 
-                ? "danger" : "foreground"
-              }
-              href={item.href}
-            >
-              {item.label}
-            </NextLink>
-          </NavbarMenuItem>
-        ))}
-      </NavbarMenu>
-    </Navbar>
+        {/* 折叠菜单内容 */}
+        <NavbarMenu className="mt-20">
+          {siteConfig.navItems.map((item, index) => (
+            <NavbarMenuItem key={`${item}-${index}`}>
+              <NextLink
+                className="w-full"
+                color={
+                  index === 2
+                  ? "primary"
+                  : index === siteConfig.navItems.length - 1
+                  ? "danger" : "foreground"
+                }
+                href={item.href}
+              >
+                {item.label}
+              </NextLink>
+            </NavbarMenuItem>
+          ))}
+        </NavbarMenu>
+      </Navbar>
+    </div>
   );
 }

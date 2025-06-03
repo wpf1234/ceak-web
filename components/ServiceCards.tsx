@@ -28,20 +28,20 @@ export const ServiceCards = () => {
   return (
     <section className="w-full flex flex-col gap-6 relative">
       {/* 标题 */}
-      <h1 className="text-5xl font-bold font-[family-name:var(--font-han-sans)] mb-8 z-10">探索我们的服务</h1>
+      <h1 className="text-7xl text-tc font-bold font-[family-name:var(--font-han-sans)] mb-8 z-10">探索我们的服务</h1>
 
       {/* ✅ SVG 背景梯形 */}
       <svg
-        className="absolute top-8 left-0 w-full pointer-events-none z-0 mt-16"
+        className="absolute top-8 left-0 w-full pointer-events-none z-0 mt-20"
         viewBox="0 0 100 100"
         preserveAspectRatio="none"
-        style={{ height: "min(550px, 50vw)", minHeight: "480px" }}
+        style={{ height: "min(600px, 50vw)", minHeight: "560px" }}
       >
         <polygon fill="#104862" points="0,0 100,0 100,85 0,100" />
       </svg>
 
       {/* ✅ 卡片区域 */}
-      <div className="w-full relative z-10 px-4 md:px-8">
+      <div className="w-full relative z-10 px-0 md:px-8 py-2">
         {isMobile ? (
         // ✅ 小屏自动轮播（单张卡片）
         <div className="w-full overflow-hidden">
@@ -93,17 +93,6 @@ export const ServiceCards = () => {
       )}
 
       {/* ✅ 常驻底部按钮 */}
-      {/* <div className="mt-4 pl-4 md:pl-8">
-        <button
-          className="group flex items-center border-2 border-white text-white font-bold px-6 py-2 rounded transition-colors duration-300 hover:bg-white/10 hover:text-white hover:border-white relative overflow-hidden"
-          style={{ fontFamily: "var(--font-han-sans)" }}
-        >
-          <span className="flex items-center transition-transform duration-1000 group-hover:translate-x-4">
-            了解更多
-            <span className="ml-2">→</span>
-          </span>
-        </button>
-      </div> */}
       <div className="mt-4 pl-4 md:pl-8">
         <button
             className="group relative inline-flex items-center justify-center border-2 border-white text-white font-bold px-6 py-2 rounded overflow-hidden transition-colors duration-300 hover:bg-white/10 hover:text-white hover:border-white"

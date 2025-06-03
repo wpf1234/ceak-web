@@ -11,6 +11,8 @@ module.exports = {
       colors:{
         primary: '#104862',    // 深蓝
         icon: '#f2f2f2',       // Icon的颜色
+        hc: '#333333fc',
+        tc: '#333333',
       }, 
     },
   },
