@@ -28,7 +28,7 @@ export const ServiceCards = () => {
   return (
     <section className="w-full flex flex-col gap-6 relative">
       {/* 标题 */}
-      <h1 className="text-7xl text-tc font-bold font-[family-name:var(--font-han-sans)] mb-8 z-10">探索我们的服务</h1>
+      <h1 className="text-7xl text-tc font-bold whitespace-nowrap font-[family-name:var(--font-han-sans)] mb-8 z-10">探索我们的服务</h1>
 
       {/* ✅ SVG 背景梯形 */}
       <svg
@@ -49,7 +49,7 @@ export const ServiceCards = () => {
             className="flex transition-transform duration-700 ease-in-out"
             style={{
                 transform: `translateX(-${currentIndex * 100}%)`,
-                width: `${siteConfig.services.length * 100}%`,
+                width: `${siteConfig.services.length * 25}%`,
             }}
             >
             {siteConfig.services.map((s) => (

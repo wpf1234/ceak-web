@@ -154,7 +154,7 @@ export const Header = () => {
           </NextLink>
         </div>
         {/* 中间横排菜单：绝对居中 */}
-        <NavbarContent className="absolute left-1/2 transform -translate-x-1/2 hidden lg:flex gap-8 whitespace-nowrap">
+        <NavbarContent className="absolute left-1/2 transform -translate-x-1/2 hidden lg:flex gap-8 whitespace-nowrap ml-40">
           {siteConfig.navItems.map((item) => (
             <NavbarItem key={item.label}>
               <NextLink

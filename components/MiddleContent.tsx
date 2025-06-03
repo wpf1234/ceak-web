@@ -38,7 +38,7 @@ export const MiddleContent = () => {
   return (
     <div className="w-full max-w-7xl mx-auto flex flex-col gap-16">
       {/* 上：轮播卡片 */}
-      <section className="w-full flex flex-col gap-6 mt-5 pr-10">
+      <section className="w-full flex flex-col gap-6 mt-5">
         {/* 轮播卡片 */}
         <div className="w-full flex items-center gap-1 min-h-[320px] md:min-h-[400px] lg:min-h-[480px]">
           <Button
@@ -52,7 +52,7 @@ export const MiddleContent = () => {
           </Button>
           <div className="rounded-3xl overflow-hidden w-full h-[220px] md:h-[320px] lg:h-[400px] flex-shrink-0 relative">
             <div 
-              className="flex transition-transform duration-500 ease-in-out h-full"
+              className="flex transition-transform duration-500 ease-in-out h-full w-full"
               style={{ transform: `translateX(-${currentSlide * 100}%)` }}
             >
               {siteConfig.rotation.map((item) => (
@@ -239,4 +239,4 @@ export const MiddleContent = () => {
       </section>
     </div>
   );
-} 
+}
