@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import localFont from 'next/font/local';
 import "./globals.css";
 import { Providers } from "./providers";
-
+import { Header } from "../components/Header";
+import { FootBar } from "../components/Footbar";
 
 const hanSans = localFont({
   src:[
@@ -17,6 +18,11 @@ const hanSans = localFont({
 export const metadata: Metadata = {
   title: "Ceak Consulting",
   description: "思客咨询(Ceak Consulting)官网",
+  icons: {
+    icon: "/images/favicon.png",
+    shortcut: "/images/favicon.png",
+    apple: "/images/favicon.png",
+  }
 };
 
 export default function RootLayout({
@@ -30,9 +36,19 @@ export default function RootLayout({
         className={`${hanSans.variable} antialiased pt-20 min-w-[360px]`}
       >
         <Providers>
-          {children}
+        <div className="flex flex-col min-h-screen">
+            {/* 顶部导航栏 */}
+            <Header />
+
+            {/* 页面内容区域 */}
+            <main className="flex-1">
+              {children}
+            </main>
+
+            {/* 底部导航栏 */}
+            <FootBar />
+          </div>
         </Providers>
-        
       </body>
     </html>
   );

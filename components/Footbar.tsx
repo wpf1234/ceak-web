@@ -4,7 +4,7 @@ export const FootBar = () => {
   return (
     <footer 
     className="bg-primary text-white 
-                pt-8 pb-4 
+                pt-6 pb-4 mt-8
                 font-[family-name:var(--font-han-sans)]"
     >
       <div 

@@ -140,11 +140,11 @@ export const Header = () => {
     <div className={`fixed flex items-center justify-between top-0 left-0 right-0 z-50 h-20 transition-colors duration-300 ${isScrolled ? 'bg-white' : 'bg-primary'}`}>
       <Navbar
         onMenuOpenChange={setIsMenuOpen}
-        className="h-full w-full"
+        className="h-full w-full mx-auto"
         style={{ minWidth: '360px', background: 'transparent' }}
       >
         {/* 左侧 Logo */}
-        <div className="absolute left-0 h-full flex items-center" style={{ minWidth: '200px' }}>
+        <div className="relative left-0 h-full flex items-center" style={{ minWidth: '200px' }}>
           <NextLink href="/" className="flex items-center w-full justify-between">
             <img
               src={isScrolled ? "/logo-deep.svg" : "/logo-thin.svg"}
