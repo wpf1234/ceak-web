@@ -12,4 +12,9 @@
 
 html, body, #__next {
   min-width: 360px; /* 与 logo 最大宽度保持一致 */
+  scroll-behavior: smooth;
+}
+
+.clip-trapezoid {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 90%);
 }

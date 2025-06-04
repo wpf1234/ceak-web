@@ -38,15 +38,15 @@ export const MiddleContent = () => {
   return (
     <div className="w-full max-w-screen-2xl mx-auto flex flex-col gap-20">
       {/* 上：轮播卡片 */}
-      <section 
-        className="w-full max-w-screen-2xl h-auto sm:h-[80vh] flex flex-col pt-20 gap-0"
-      >
-        {/* 轮播卡片 */}
-        <div className="w-full flex-1 flex flex-col pt-20 items-start justify-start">
-          <div className="w-full flex items-center min-h-[220px] md:min-h-[320px] lg:min-h-[400px]">
+      <section className="w-full max-w-screen-2xl min-h-[80vh] flex flex-col mt-6 gap-0 ">
+        {/* 轮播卡片区域，占比80% */}
+        <div className="flex-grow-[4] basis-0 
+        flex flex-col items-start justify-start h-full"
+        >
+          <div className="w-full flex items-center h-full bg-gray-300">
             {/* 左侧按钮 */}
             <Button
-              className="text-xl text-gray-400 bg-transparent hover:text-primary transition-colors duration-300 rounded-full"
+              className="text-xl text-gray-800 bg-transparent hover:text-primary transition-colors duration-300 rounded-full"
               onPress={() => handlePrevSlide()}
               isIconOnly
             >
@@ -69,31 +69,38 @@ export const MiddleContent = () => {
                   >
                     <CardBody className="p-0 m-0 h-full">
                       <div className="flex flex-col md:flex-row w-full h-full">
-                        {/* 左图：h-full 覆盖所有父级 */}
-                        <div className="w-full md:w-1/2 h-full bg-white">
+                        {/* 左侧图片区域 */}
+                        <div 
+                        className="w-full md:w-1/2 h-auto 
+                        bg-gray-300 flex justify-center items-center"
+                        >
                           <HeroImage
                             alt="banner"
                             src={item.img}
-                            className="object-cover w-full h-full"
-                            width="100%"
-                            height="100%"
-                            radius="none"
+                            className="object-cover w-full h-full 
+                            max-h-[400px] md:max-h-full 
+                            aspect-video md:aspect-auto"
+                            radius="lg"
                           />
                         </div>
 
-                        {/* 右文 */}
-                        <div className="w-full md:w-1/2 flex flex-col p-8 justify-between overflow-visible h-full">
-                          <div>
-                            <p className="text-7xl md:text-4xl lg:text-5xl text-hc font-bold font-[family-name:var(--font-han-sans)]">
-                              {item.title1} <br />{item.title2}
+                        {/* 右侧内容区域 */}
+                        <div className="w-full md:w-1/2 flex flex-col h-full p-6 md:p-8 gap-6 bg-gray-300">
+                          <div className="flex flex-col gap-4 pt-32 md:pt-40">
+                            <p className="text-3xl md:text-5xl lg:text-6xl text-hc font-bold font-[family-name:var(--font-han-sans)] leading-tight">
+                              {item.title1}
                             </p>
-                            <p className="text-xl md:text-base lg:text-lg text-tc mt-4 font-[family-name:var(--font-han-sans)]">
+                            <p className="text-3xl md:text-5xl lg:text-6xl text-hc font-bold font-[family-name:var(--font-han-sans)] leading-tight">
+                              {item.title2}
+                            </p>
+                            <p className="text-base md:text-xl lg:text-lg text-tc font-[family-name:var(--font-han-sans)]">
                               {item.content}
                             </p>
                           </div>
-                          <div className="flex justify-end mt-4">
+
+                          <div className="flex md:justify-end justify-center mt-8 md:mt-14">
                             <Button
-                              className="bg-primary text-sm md:text-base font-[family-name:var(--font-han-sans)] text-white"
+                              className="bg-primary text-md md:text-base font-[family-name:var(--font-han-sans)] text-white"
                               href="#"
                               radius="full"
                               size="sm"
@@ -108,9 +115,10 @@ export const MiddleContent = () => {
                 ))}
               </div>
             </div>
+
             {/* 右侧按钮 */}
             <Button
-              className="text-xl text-gray-400 bg-transparent hover:text-primary transition-colors duration-300 rounded-full"
+              className="text-xl text-gray-800 bg-transparent hover:text-primary transition-colors duration-300 rounded-full"
               onPress={() => handleNextSlide()}
               isIconOnly
             >
@@ -119,10 +127,14 @@ export const MiddleContent = () => {
           </div>
         </div>
 
-        {/* CEAK聚焦部分 */}
-        <div className="min-h-[80px] w-full md:w-1/2 mx-auto">
-          <div className="w-full bg-white rounded-2xl shadow border px-6 py-3 flex flex-col md:flex-row items-center justify-center gap-y-2 md:gap-x-8">
-            <div className="text-xl text-gray-700 font-[family-name:var(--font-han-sans)] uppercase tracking-widest font-medium whitespace-nowrap">
+        {/* CEAK聚焦部分，占比20% */}
+        <div className="flex-grow-[1] basis-0 flex items-center justify-center w-full md:w-1/2 mx-auto mt-20 h-full">
+          <div 
+          className="w-full bg-white rounded-2xl shadow border 
+          px-6 py-3 flex flex-col md:flex-row 
+          items-center justify-center gap-y-2 md:gap-x-8"
+          >
+            <div className="text-base md:text-xl text-gray-700 font-[family-name:var(--font-han-sans)] uppercase tracking-widest font-medium whitespace-nowrap">
               CEAK聚焦
             </div>
             <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-1 whitespace-nowrap overflow-x-auto">
@@ -130,7 +142,7 @@ export const MiddleContent = () => {
                 <a
                   key={item}
                   href="#"
-                  className="text-xl font-bold uppercase text-tc font-[family-name:var(--font-han-sans)] border-b-2 border-black/80 hover:border-primary transition-all cursor-pointer"
+                  className="text-base md:text-xl font-bold uppercase text-tc font-[family-name:var(--font-han-sans)] border-b-2 border-black/80 hover:border-primary transition-all cursor-pointer"
                 >
                   {item}
                 </a>
@@ -150,8 +162,8 @@ export const MiddleContent = () => {
           {/* 左侧文字区域 */}
           <div className="flex-1 flex flex-col justify-between h-full relative">
             <div>
-              <p className="text-7xl text-tc font-bold mb-8 font-[family-name:var(--font-han-sans)]">关于CEAK</p>
-              <p className="text-tc text-base text-dmd font-[family-name:var(--font-han-sans)] leading-relaxed">
+              <p className="text-5xl md:text-7xl text-tc font-bold mb-8 font-[family-name:var(--font-han-sans)]">关于CEAK</p>
+              <p className="text-tc text-sm md:text-lg text-dmd font-[family-name:var(--font-han-sans)] leading-relaxed">
                 专注于为高校提供人工智能领域的全方位咨询与解决方案，涵盖AI课程建设、精品课拍摄、教师赋能、应用规划及项目孵化等服务。我们汇聚教育、技术与产业专家，致力于推动AI与学科的深度融合，助力高校提升教学质量与科研创新能力，打造面向未来的教育新生态。思客咨询，以专业与创新陪伴高校共创卓越。
               </p>
             </div>
@@ -161,6 +173,7 @@ export const MiddleContent = () => {
                   className="group flex items-center border-2 border-black text-black font-bold px-6 py-2 rounded transition-colors duration-300 hover:bg-black/10
                   hover:text-black hover:border-black relative overflow-hidden self-start"
                   style={{ fontFamily: "var(--font-han-sans)" }}
+                  onClick={() => window.location.href = "/about"}
               >
                   {/* ✅ 动画容器 */}
                   <span className="block relative w-full overflow-hidden">
@@ -197,37 +210,40 @@ export const MiddleContent = () => {
       </section>
       
       {/* 下：职业发展 */}
-      {/* ✅ 响应式修改：主结构支持手机端纵排 */}
-      <section className="w-full flex flex-col md:flex-row items-center bg-gray-100 gap-8 my-10">
-        {/* 左侧图片 */}
-        <div className="flex flex-col md:flex-row w-full">
+      {/* 下：职业发展 */}
+      <section className="w-full flex flex-col md:flex-row items-center bg-gray-100 gap-8 mt-32 mb-16">
+        {/* ✅ 响应式修改：主结构支持手机端纵排 */}
+        <div className="flex h-full flex-col md:flex-row gap-6 w-full">
+          
           {/* 左侧图片区域 */}
-          <div className="flex flex-1 justifu-center shadow">
+          <div className="flex-1 flex rounded-3xl justify-center mt-4 md:mt-0">
             <HeroImage
-            src="/images/career.jpg"
-            alt="职业发展"
-            width="100%"
-            height="100%"
-            className="object-cover w-full h-full"
-            radius="none"
+              src="/images/career.jpg"
+              alt="职业发展"
+              className="object-cover w-full h-full"
+              radius="none"
             />
           </div>
 
           {/* 右侧内容区域 */}
-          {/* ✅ 响应式修改：内容区域适配手机端纵排 */}
-          <div className="flex flex-1 flex-col justify-between relative md:ml-5 ml-0 px-4 md:p-8">
+          <div className="flex-1 flex flex-col justify-between h-full relative px-4 md:px-8">
             <div>
-              <div className="text-base text-tc font-[family-name:var(--font-han-sans)] mt-20">职业发展</div>
-              <p className="text-5xl text-tc font-bold mt-10 font-[family-name:var(--font-han-sans)]">用AI共创未来教育新篇章</p>
-              <p className="text-tc text-2xl mt-9 font-[family-name:var(--font-han-sans)]">
+              <div className="text-sm md:text-base text-tc font-[family-name:var(--font-han-sans)] mt-12 md:mt-20">
+                职业发展
+              </div>
+              <p className="text-3xl md:text-5xl text-tc font-bold mt-6 md:mt-10 font-[family-name:var(--font-han-sans)]">
+                用AI共创未来教育新篇章
+              </p>
+              <p className="text-tc text-base md:text-2xl mt-6 md:mt-9 font-[family-name:var(--font-han-sans)] leading-relaxed">
                 促进公司、行业和社会的创新认知
               </p>
             </div>
 
-            <div className="flex justify-end mt-36 mr-2 mb-10">
+            {/* 按钮区域 */}
+            <div className="py-5 mt-16 md:mt-36 flex md:justify-end justify-center mb-10">
               <Button
-                className="bg-primary text-tiny md:text-sm lg:text-base font-[family-name:var(--font-han-sans)] text-white"
-                href="#"
+                className="bg-primary text-sm md:text-base font-[family-name:var(--font-han-sans)] text-white"
+                onPress={() => window.location.href = "/career"}
                 size="md"
               >
                 申请职业机会

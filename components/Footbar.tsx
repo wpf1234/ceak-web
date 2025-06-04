@@ -21,10 +21,10 @@ export const FootBar = () => {
         </div>
         {/* Menu 响应式排列 */}
         <nav className="flex flex-col md:flex-row gap-2 md:gap-0 text-lg text-bold justify-start items-start ">
-          <a href="#">关于我们</a>
-          <a href="#" className="md:mx-6">专业服务</a>
-          <a href="#">加入我们</a>
-          <a href="#" className="md:ml-6">联系我们</a>
+          <a href="/about">关于我们</a>
+          <a href="/cooperation" className="md:mx-6">专业服务</a>
+          <a href="/career">加入我们</a>
+          <a href="/contact" className="md:ml-6">联系我们</a>
         </nav>
         {/* QR Code */}
         <div className="flex flex-col items-center mt-6 md:mt-0">

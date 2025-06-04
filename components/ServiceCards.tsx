@@ -7,7 +7,6 @@ import {
   Image as HeroImage,
   Card,
   CardFooter,
-  Button,
 } from "@heroui/react";
 
 export const ServiceCards = () => {
@@ -28,7 +27,9 @@ export const ServiceCards = () => {
   return (
     <section className="w-full flex flex-col gap-6 relative">
       {/* 标题 */}
-      <h1 className="text-7xl text-tc font-bold whitespace-nowrap font-[family-name:var(--font-han-sans)] mb-8 z-10">探索我们的服务</h1>
+      <p className="text-5xl md:text-7xl text-tc font-bold whitespace-nowrap font-[family-name:var(--font-han-sans)] mb-8 z-10">
+        探索我们的服务
+      </p>
 
       {/* ✅ SVG 背景梯形 */}
       <svg
@@ -41,7 +42,7 @@ export const ServiceCards = () => {
       </svg>
 
       {/* ✅ 卡片区域 */}
-      <div className="w-full relative z-10 px-0 md:px-8 py-2">
+      <div className="w-full relative z-10 px-0 md:px-8 pt-8">
         {isMobile ? (
         // ✅ 小屏自动轮播（单张卡片）
         <div className="w-full overflow-hidden">
@@ -123,7 +124,7 @@ export const ServiceCards = () => {
 // ✅ 单个服务卡片封装（建议提取）
 const ServiceCard = ({ data }: { data: { title: string; desc: string; img: string } }) => (
     <Card
-      className="flex flex-col justify-between items-center relative bg-white/10 overflow-hidden min-h-[320px] md:min-h-[380px] lg:min-h-[420px] h-auto group"
+      className="flex flex-col justify-between items-center relative bg-white/10 overflow-hidden min-h-[320px] md:min-h-[380px] lg:min-h-[420px] h-auto group "
       radius="none"
     >
       {/* 背景图 */}
@@ -143,20 +144,15 @@ const ServiceCard = ({ data }: { data: { title: string; desc: string; img: strin
         className="relative w-[calc(100%-32px)] mx-4 py-2 px-4 border-1 border-white/20 bg-gray-200/90 backdrop-blur-sm rounded-xl z-10
                    transition-all duration-300 transform group-hover:-translate-y-full group-hover:opacity-0 mt-auto mb-4 flex justify-center text-center text-sm md:text-base"
       >
-        <p className="text-black font-bold">{data.title}</p>
+        <p className="text-base md:text-xl text-tc font-bold">{data.title}</p>
       </CardFooter>
   
       {/* 悬浮内容（完整展示） */}
       <div className="absolute inset-0 w-full h-full bg-gray-200/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20 overflow-y-auto">
         <div className="p-6 h-full flex flex-col justify-between">
           <div>
-            <h3 className="text-xl font-bold mb-4 text-left">{data.title}</h3>
-            <p className="text-gray-600 text-sm text-left whitespace-pre-wrap">{data.desc}</p>
-          </div>
-          <div className="flex justify-end mt-4">
-            <Button className="bg-primary text-white px-4 py-2 rounded-full text-sm hover:bg-primary/90 transition-colors">
-              了解更多
-            </Button>
+            <p className="text-base md:text-xl text-tc font-bold mb-4 text-left">{data.title}</p>
+            <p className="text-tc text-sm md:text-base text-left whitespace-pre-wrap">{data.desc}</p>
           </div>
         </div>
       </div>

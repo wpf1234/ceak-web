@@ -41,7 +41,7 @@ export default function RootLayout({
             <Header />
 
             {/* 页面内容区域 */}
-            <main className="flex-1">
+            <main className="flex-1 w-full max-w-[1920px] mx-auto">
               {children}
             </main>
 
