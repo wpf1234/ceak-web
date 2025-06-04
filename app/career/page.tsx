@@ -6,8 +6,7 @@ import {
 } from '@heroui/react'; // 示例组件
 import { siteConfig } from '@/config/site';
 import { ApplicationSection } from '@/components/Application';
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
+import { JobCard } from '@/components/JobCard';
 
 export default function CareerPage() {
   const slideInFromRight = {
@@ -18,8 +17,7 @@ export default function CareerPage() {
       transition: { duration: 1.0, ease: 'easeOut' },
     },
   }; 
-  const jobCount = siteConfig.jobs.slice(0,3).length;
-  const inViewHooks = Array.from({ length: jobCount }, () => useInView({ triggerOnce: true }));
+  
 
   return (
     <div className="w-full flex flex-col">
@@ -89,41 +87,14 @@ export default function CareerPage() {
         </p>
 
         <div className="flex flex-col gap-10 items-center ">
-          {siteConfig.jobs.slice(0, 3).map((job, idx) => {
-            const isPrimary = idx % 2 === 0;
-            const bgColor = isPrimary ? 'bg-primary' : 'bg-gray-300';
-            const textColor = isPrimary ? 'text-white' : 'text-tc';
-            const dotColor = isPrimary ? 'bg-white' : 'bg-tc';
-            const [ ref, inView ] = inViewHooks[idx];
-
-            return (
-              <motion.div
-                ref={ref}
-                variants={slideInFromRight}
-                initial="hidden"
-                animate={inView ? 'visible' : 'hidden'}
-                key={idx}
-                className={`w-full max-w-[1700px] min-h-[380px] px-10 py-8 rounded-2xl ${bgColor} ${textColor} hover:shadow-xl`}
-              >
-                {/* 标题 + 简述 */}
-                <p className="text-3xl md:text-5xl font-bold mb-6">{job.title}</p>
-                <p className="text-2xl md:text-3xl mb-6">{job.description}</p>
-
-                {/* 申请要求 */}
-                <p className="text-xl md:text-3xl mb-4">{job.detail}</p>
-
-                {/* 详细要求列表 */}
-                <ul className="list-none space-y-2">
-                  {job.requirements.map((req: string, i: number) => (
-                    <li key={i} className="flex items-start gap-2">
-                      <span className={`w-2 h-2 mt-2 rounded-full ${dotColor}`}></span>
-                      <span className="text-xl md:text-3xl">{req}</span>
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-            );
-          })}
+        {siteConfig.jobs.slice(0, 3).map((job, idx) => (
+          <JobCard
+            key={idx}
+            job={job}
+            isPrimary={idx % 2 === 0}
+            animation={slideInFromRight}
+          />
+        ))}
         </div>
       </section>
 
