@@ -8,6 +8,7 @@ import { siteConfig } from '@/config/site';
 import ApplicationSection from '@/components/Application';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { useRef } from 'react';
 
 
 export default function CareerPage() {
@@ -19,6 +20,9 @@ export default function CareerPage() {
       transition: { duration: 1.0, ease: 'easeOut' },
     },
   }; 
+  // const refs = useRef<(((node?: Element | null) => void) | null)[]>([]); // ✅ 添加类型注解
+  const refs = useRef<React.RefCallback<Element>[]>([]);  //官方类型
+  refs.current =  [];
 
   return (
     <div className="w-full flex flex-col">
@@ -93,7 +97,8 @@ export default function CareerPage() {
             const bgColor = isPrimary ? 'bg-primary' : 'bg-gray-300';
             const textColor = isPrimary ? 'text-white' : 'text-tc';
             const dotColor = isPrimary ? 'bg-white' : 'bg-tc';
-            const [ref, inView] = useInView({ triggerOnce: true });
+            const [ref, inView] = useInView();
+            refs.current[idx] = ref;
 
             return (
               <motion.div
