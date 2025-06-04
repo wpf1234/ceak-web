@@ -2,7 +2,7 @@
 
 import {  Button } from '@heroui/react';
 
-export default function ApplicationSection() {
+export const ApplicationSection = () => {
 
   return (
     <section id="application" className="w-full px-6 py-20 bg-white">

@@ -5,10 +5,9 @@ import {
   Image as HeroImage, 
 } from '@heroui/react'; // 示例组件
 import { siteConfig } from '@/config/site';
-import ApplicationSection from '@/components/Application';
+import { ApplicationSection } from '@/components/Application';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-
 
 export default function CareerPage() {
   const slideInFromRight = {
@@ -19,8 +18,9 @@ export default function CareerPage() {
       transition: { duration: 1.0, ease: 'easeOut' },
     },
   }; 
+  const jobCount = siteConfig.jobs.slice(0,3).length;
+  const inViewHooks = Array.from({ length: jobCount }, () => useInView({ triggerOnce: true }));
 
-  const jobInViews = siteConfig.jobs.slice(0, 3).map(() => useInView({ triggerOnce: true }));
   return (
     <div className="w-full flex flex-col">
       {/* 上部分：顶部图片 + 推荐入口 */}
@@ -94,7 +94,7 @@ export default function CareerPage() {
             const bgColor = isPrimary ? 'bg-primary' : 'bg-gray-300';
             const textColor = isPrimary ? 'text-white' : 'text-tc';
             const dotColor = isPrimary ? 'bg-white' : 'bg-tc';
-            const [ ref, inView ] = jobInViews[idx];
+            const [ ref, inView ] = inViewHooks[idx];
 
             return (
               <motion.div
