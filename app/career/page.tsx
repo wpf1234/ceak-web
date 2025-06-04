@@ -88,12 +88,7 @@ export default function CareerPage() {
 
         <div className="flex flex-col gap-10 items-center ">
         {siteConfig.jobs.slice(0, 3).map((job, idx) => (
-          <JobCard
-            key={idx}
-            job={job}
-            isPrimary={idx % 2 === 0}
-            animation={slideInFromRight}
-          />
+          <JobCard key={idx} job={job} index={idx} />
         ))}
         </div>
       </section>
