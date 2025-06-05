@@ -27,7 +27,7 @@ export const ServiceCards = () => {
   return (
     <section className="w-full flex flex-col gap-6 relative">
       {/* 标题 */}
-      <p className="text-5xl md:text-7xl text-tc font-bold whitespace-nowrap font-[family-name:var(--font-han-sans)] mb-8 z-10 px-4">
+      <p className="text-6xl md:text-8xl text-tc font-bold whitespace-nowrap font-[family-name:var(--font-han-sans)] mb-8 z-10 px-4">
         探索我们的服务
       </p>
 

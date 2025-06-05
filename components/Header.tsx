@@ -149,7 +149,7 @@ export const Header = () => {
       >
         {/* 左侧 Logo */}
         <div className="relative h-full max-w-layout flex items-center" style={{ minWidth: '200px' }}>
-          <Link href="/" className="flex items-center w-full justify-center pl-6 md:pl-20">
+          <Link href="/" className="flex items-center w-full justify-center pl-10 md:pl-40">
             <Image
               src={isScrolled ? "/logo-deep.svg" : "/logo-thin.svg"}
               alt="思客咨询 ceak Consulting"

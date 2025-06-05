@@ -26,6 +26,6 @@ html, body, #__next {
 
 #application {
   position: relative;
-  padding-top: 112px;   /* 这里的100px根据导航栏高度调整 */
-  margin-top: -100px;
+  padding-top: 185px;   /* 这里的100px根据导航栏高度调整 */
+  margin-top: -60px;
 }

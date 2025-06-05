@@ -26,8 +26,8 @@ const hanSansLight = localFont({
 })
 
 export const metadata: Metadata = {
-  title: "Ceak Consulting",
-  description: "思客咨询(Ceak Consulting)官网",
+  // title: "首页 | 思客咨询",
+  // description: "思客咨询(Ceak Consulting)官网",
   icons: {
     icon: "/images/favicon.png",
     shortcut: "/images/favicon.png",
