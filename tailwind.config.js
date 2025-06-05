@@ -14,15 +14,18 @@ module.exports = {
         hc: '#333333fc',
         tc: '#333333',
       }, 
-      height: {
-        '80svh': '80svh',
-        '100svh': '100svh',
-      },
-      maxHeight: {
-        '90svh': '90svh',
-      },
-      minHeight: {
-        '80svh': '80svh',
+      // height: {
+      //   '80svh': '80svh',
+      //   '100svh': '100svh',
+      // },
+      // maxHeight: {
+      //   '90svh': '90svh',
+      // },
+      // minHeight: {
+      //   '80svh': '80svh',
+      // },
+      spacing: {
+        header: '7rem', // 112px
       },
     },
   },

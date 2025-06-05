@@ -33,7 +33,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="light">
       <body
-        className={`${hanSans.variable} antialiased pt-20 min-w-[360px]`}
+        className={`${hanSans.variable} antialiased pt-header min-w-[360px]`}
       >
         <Providers>
         <div className="flex flex-col min-h-screen">

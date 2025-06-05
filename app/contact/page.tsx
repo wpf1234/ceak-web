@@ -30,8 +30,8 @@ export default function ContactUs() {
       {/* 下部：留言表单 */}
       <div className="space-y-6 px-0 md:px-40 pb-20">
         <div className="text-start space-y-2">
-          <p className="text-5xl md:text-7xl font-semibold font-[family-name:var(--font-han-sans)] text-tc">给我们留言</p>
-          <p className="text-xl md:text-3xl text-tc font-[family-name:var(--font-han-sans)] py-10">
+          <p className="text-3xl md:text-5xl md:md:text-7xl font-semibold font-[family-name:var(--font-han-sans)] text-tc">给我们留言</p>
+          <p className="text-lg md:text-2xl text-tc font-[family-name:var(--font-han-sans)] py-10">
             感谢您对CEAK的关注，请填写以下信息与我们联系。
           </p>
         </div>

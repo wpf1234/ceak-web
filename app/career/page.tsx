@@ -56,15 +56,15 @@ export default function CareerPage() {
         </div>
 
         {/* 下部：技能卡片 */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {siteConfig.skills.slice(0, 5).map((skill, idx) => (
             <div
               key={idx}
-              className="bg-white max-w-[460px] min-h-[300px] w-full p-8 shadow text-left cursor-pointer
+              className="bg-white max-w-[520px] min-h-[300px] w-full p-8 shadow text-left cursor-pointer
                         transform transition-all duration-300 hover:shadow-lg"
             >
-              <p className="text-3xl md:text-5xl text-tc font-bold mb-4">{skill.title}</p>
-              <p className="text-xl md:text-2xl text-tc">{skill.description}</p>
+              <p className="text-2xl md:text-4xl text-tc font-bold font-[family-name:var(--font-han-sans)] mb-2 md:mb-4">{skill.title}</p>
+              <p className="text-xl md:text-2xl text-tc font-[family-name:var(--font-han-sans)]">{skill.description}</p>
             </div>
           ))}
         </div>

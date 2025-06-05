@@ -210,13 +210,12 @@ export const MiddleContent = () => {
       </section>
       
       {/* 下：职业发展 */}
-      {/* 下：职业发展 */}
       <section className="w-full flex flex-col md:flex-row items-center bg-gray-100 gap-8 mt-32 mb-16">
         {/* ✅ 响应式修改：主结构支持手机端纵排 */}
         <div className="flex h-full flex-col md:flex-row gap-6 w-full">
           
           {/* 左侧图片区域 */}
-          <div className="flex-1 flex rounded-3xl justify-center mt-4 md:mt-0">
+          <div className="flex-1 flex justify-center mt-0 md:mt-0">
             <HeroImage
               src="/images/career.jpg"
               alt="职业发展"

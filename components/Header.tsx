@@ -141,7 +141,7 @@ export const Header = () => {
     //     </div> */}
 
 
-    <div className={`fixed flex items-center justify-between top-0 left-0 right-0 z-50 h-28 transition-colors duration-300 ${isScrolled ? 'bg-white' : 'bg-primary'}`}>
+    <div className={`fixed flex items-center justify-between top-0 left-0 right-0 z-50 h-header transition-colors duration-300 ${isScrolled ? 'bg-white' : 'bg-primary'}`}>
       <Navbar
         onMenuOpenChange={setIsMenuOpen}
         className="h-full w-full mx-auto"
