@@ -10,6 +10,7 @@ import {
   NavbarContent,
   NavbarItem,
   Link,
+  Image,
 } from "@heroui/react";
 import {
   usePathname,
@@ -140,17 +141,16 @@ export const Header = () => {
     //       </Modal>
     //     </div> */}
 
-
-    <div className={`fixed flex items-center justify-between top-0 left-0 right-0 z-50 h-header transition-colors duration-300 ${isScrolled ? 'bg-white' : 'bg-primary'}`}>
+    <div className={`fixed top-0 left-0 right-0 z-50 h-header transition-colors duration-300 ${isScrolled ? 'bg-white' : 'bg-primary'}`}>
       <Navbar
         onMenuOpenChange={setIsMenuOpen}
-        className="h-full w-full mx-auto"
-        style={{ minWidth: '360px', background: 'transparent' }}
+        className="h-full max-w-layout w-full mx-auto !bg-transparent"
+        style={{ minWidth: '360px' , backgroundColor: 'transparent', backdropFilter: 'none' }}
       >
         {/* 左侧 Logo */}
-        <div className="relative left-0 h-full flex items-center" style={{ minWidth: '200px' }}>
-          <Link href="/" className="flex items-start w-full justify-between">
-            <img
+        <div className="relative h-full max-w-layout flex items-center" style={{ minWidth: '200px' }}>
+          <Link href="/" className="flex items-center w-full justify-center pl-6 md:pl-20">
+            <Image
               src={isScrolled ? "/logo-deep.svg" : "/logo-thin.svg"}
               alt="思客咨询 ceak Consulting"
               className="h-24 w-auto max-w-[220px] mx-auto transition-all duration-300"
@@ -158,12 +158,12 @@ export const Header = () => {
           </Link>
         </div>
         {/* 中间横排菜单：绝对居中 */}
-        <NavbarContent className="absolute left-1/2 transform -translate-x-1/2 hidden lg:flex gap-8 whitespace-nowrap ml-40">
+        <NavbarContent className="absolute left-1/2 transform -translate-x-1/2 !bg-transparent hidden lg:flex gap-8 whitespace-nowrap ml-48">
           {siteConfig.navItems.map((item) => {
             const isActive = pathname === item.href;
 
             return (
-              <NavbarItem key={item.label}>
+              <NavbarItem key={item.label} className="!bg-transparent">
                 <Link
                   href={item.href}
                   className={`font-[family-name:var(--font-han-sans)] 
@@ -185,22 +185,24 @@ export const Header = () => {
           <NavbarMenuToggle
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             onClick={() => setIsMenuOpen((prev) => !prev)}
-            className={`lg:hidden transition-colors ${isScrolled ? 'text-black' : 'text-white'}`}
+            className={`lg:hidden !bg-transparent transition-colors ${isScrolled ? 'text-black' : 'text-white'}`}
           />
         </div>
         {/* 折叠菜单内容 */}
-        <NavbarMenu className="pt-12">
+        <NavbarMenu className="pt-12 !bg-transparent flex flex-col items-center justify-center h-full">
           {siteConfig.navItems.map((item, index) => {
             const isActive = pathname === item.href;
 
             return (
-              <NavbarMenuItem key={`${item.label}-${index}`}>
+              <NavbarMenuItem
+                key={`${item.label}-${index}`}
+                className="flex items-center justify-center w-full py-4"  // 宽度100%，上下padding，水平垂直居中
+              >
                 <Link
                   href={item.href}
-                  onClick={() => setIsMenuOpen(false)}  // ✅ 点击后关闭菜单
-                  className={`w-full font-[family-name:var(--font-han-sans)] text-xl md:text-2xl text-tc ${
-                    isActive ? 'font-bold underline underline-offset-4' : 'font-normal'
-                  }`}
+                  onClick={() => setIsMenuOpen(false)}
+                  className={`font-[family-name:var(--font-han-sans)] text-xl md:text-2xl text-black 
+                              ${isActive ? 'font-bold underline underline-offset-4' : 'font-normal'}`}
                 >
                   {item.label}
                 </Link>

@@ -27,6 +27,9 @@ module.exports = {
       spacing: {
         header: '7rem', // 112px
       },
+      maxWidth: {
+        layout: '1920px',
+      }
     },
   },
   darkMode: "class",

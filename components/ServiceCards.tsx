@@ -36,7 +36,7 @@ export const ServiceCards = () => {
         className="absolute top-8 left-0 w-full pointer-events-none z-0 mt-20"
         viewBox="0 0 100 100"
         preserveAspectRatio="none"
-        style={{ height: "min(600px, 50vw)", minHeight: "560px" }}
+        style={{ height: "min(600px, 50vw)", minHeight: "600px" }}
       >
         <polygon fill="#104862" points="0,0 100,0 100,85 0,100" />
       </svg>
@@ -59,8 +59,8 @@ export const ServiceCards = () => {
                 className="w-full flex-shrink-0 "
                 >
                 {/* <ServiceCard data={s} /> */}
-                <div className="w-full max-w-[95%] mx-auto">
-                    <ServiceCard data={s} />
+                <div className="w-full max-w-[95%] mx-auto ">
+                    <ServiceCard data={s}  />
                 </div>
                 </div>
             ))}
@@ -71,7 +71,7 @@ export const ServiceCards = () => {
           <div className="flex gap-4">
             {siteConfig.services.map((s) => (
               <div key={s.title} className="flex-1">
-                <ServiceCard data={s} />
+                <ServiceCard data={s}  />
               </div>
             ))}
           </div>
@@ -96,65 +96,114 @@ export const ServiceCards = () => {
       {/* ✅ 常驻底部按钮 */}
       <div className="mt-4 pl-4 md:pl-8">
         <button
-            className="group relative inline-flex items-center justify-center border-2 border-white text-white font-bold px-6 py-2 rounded overflow-hidden transition-colors duration-300 hover:bg-white/10 hover:text-white hover:border-white"
-            style={{ fontFamily: "var(--font-han-sans)" }}
+          className="group relative inline-flex items-center justify-center border-2 border-white text-white font-bold px-6 py-2 rounded overflow-hidden transition-colors duration-300 hover:bg-white/10 hover:text-white hover:border-white"
+          style={{ fontFamily: "var(--font-han-sans)" }}
+          onClick={() => window.location.href = "/cooperation"}
         >
-            {/* ✅ 动画容器 */}
-            <span className="block relative w-full overflow-hidden">
-            {/* 默认状态：了解更多 → */}
-            <span className="flex items-center justify-center gap-2 transition-transform duration-500 group-hover:translate-x-full">
-                了解更多
-                {/* <ArrowRight className="w-4 h-4" /> */}
-                <span className="ml-2">→</span>
-            </span>
+          {/* 左侧滑入箭头 */}
+          <span className="absolute left-4 opacity-0 -translate-x-4 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0">
+            →
+          </span>
 
-            {/* 悬停状态：→ 了解更多 */}
-            <span className="flex items-center justify-center gap-2 absolute top-0 left-0 w-full transition-transform duration-500 translate-x-[-100%] group-hover:translate-x-0">
-                {/* <ArrowRight className="w-4 h-4" /> */}
-                <span className="mr-2">→</span>
-                了解更多
-            </span>
-            </span>
+          {/* 主体文本（位移） */}
+          <span className="relative ml-2 flex items-center font-[family-name:var(--font-han-sans)] transition-transform duration-300 group-hover:translate-x-2">
+            了解更多
+          </span>
+
+          {/* 右侧滑出箭头 */}
+          <span className="ml-2 transition-transform duration-300 group-hover:translate-x-4 opacity-100 group-hover:opacity-0">
+            →
+          </span>
         </button>
-        </div>
+      </div>
     </section>
   );
 };
 
 // ✅ 单个服务卡片封装（建议提取）
-const ServiceCard = ({ data }: { data: { title: string; desc: string; img: string } }) => (
-    <Card
-      className="flex flex-col justify-between items-center relative bg-white/10 overflow-hidden min-h-[320px] md:min-h-[380px] lg:min-h-[420px] h-auto group "
-      radius="none"
+const ServiceCard = ({ 
+  data 
+}: { 
+  data: { title: string; desc: string; img: string } ;
+}) => (
+  <Card
+    className="flex flex-col justify-between items-center relative 
+    bg-white/10 overflow-hidden min-h-[320px] md:min-h-[380px] lg:min-h-[420px] 
+    h-auto group "
+    radius="none"
+  >
+    {/* 背景图 */}
+    <div className="absolute inset-0 w-full h-full flex items-center justify-center">
+      <HeroImage
+        src={data.img}
+        alt={data.title}
+        className="w-full h-full object-cover group-hover:blur-sm transition-all duration-300"
+        width="100%"
+        height="100%"
+        radius="none"
+      />
+    </div>
+
+    {/* 卡片底部标题 */}
+    <CardFooter
+      className="relative w-[calc(100%-32px)] mx-4 py-4 px-4 border-1 border-white/20 bg-gray-200/90 backdrop-blur-sm rounded-xl z-10
+                 transition-all duration-300 transform group-hover:-translate-y-full group-hover:opacity-0 mt-auto mb-4 flex justify-center text-center text-sm md:text-base"
     >
-      {/* 背景图 */}
-      <div className="absolute inset-0 w-full h-full flex items-center justify-center">
-        <HeroImage
-          src={data.img}
-          alt={data.title}
-          className="w-full h-full object-cover group-hover:blur-sm transition-all duration-300"
-          width="100%"
-          height="100%"
-          radius="none"
-        />
-      </div>
-  
-      {/* 卡片底部标题 */}
-      <CardFooter
-        className="relative w-[calc(100%-32px)] mx-4 py-2 px-4 border-1 border-white/20 bg-gray-200/90 backdrop-blur-sm rounded-xl z-10
-                   transition-all duration-300 transform group-hover:-translate-y-full group-hover:opacity-0 mt-auto mb-4 flex justify-center text-center text-sm md:text-base"
-      >
-        <p className="text-base md:text-xl text-tc font-bold">{data.title}</p>
-      </CardFooter>
-  
-      {/* 悬浮内容（完整展示） */}
-      <div className="absolute inset-0 w-full h-full bg-gray-200/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20 overflow-y-auto">
-        <div className="p-6 h-full flex flex-col justify-between">
-          <div>
-            <p className="text-base md:text-xl text-tc font-bold mb-4 text-left">{data.title}</p>
-            <p className="text-tc text-sm md:text-base text-left whitespace-pre-wrap">{data.desc}</p>
-          </div>
+      <p className="text-2xl md:text-xl text-tc font-bold font-[family-name:var(--font-han-sans)] ">{data.title}</p>
+    </CardFooter>
+
+    {/* 悬浮内容（完整展示） */}
+    <div className="absolute inset-0 w-full h-full bg-gray-200/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20 overflow-y-auto">
+      <div className="p-6 h-full flex flex-col justify-between">
+        <div>
+          <p className="text-xl md:text-3xl text-tc font-bold font-[family-name:var(--font-han-sans)] mb-4 text-left">{data.title}</p>
+          <p className="text-tc text-base md:text-xl text-left font-[family-name:var(--font-sans-light)] whitespace-pre-wrap">{data.desc}</p>
         </div>
       </div>
-    </Card>
+    </div>
+  </Card>
 );
+
+// const ServiceCard = ({ data }: { data: { title: string; desc: string; img: string } }) => {
+//   return (
+//     <Card
+//       radius="none"
+//       className="relative overflow-hidden 
+//       group bg-transparent w-full 
+//       aspect-[9/16] flex flex-col justify-end z-10"
+//     >
+//       {/* 背景图：按比例填充，16:9 图适配 9:16 容器 */}
+//       <HeroImage
+//         src={data.img}
+//         alt={data.title}
+//         radius="none"
+//         width="100%"
+//         height="100%"
+//         className="absolute inset-0 w-full h-full object-cover group-hover:blur-sm transition-all duration-300 z-0"
+//       />
+
+//       {/* 卡片底部标题 */}
+//       <CardFooter
+//         className="relative z-10 mx-4 mb-4 py-4 px-4 bg-gray-200/90 backdrop-blur-sm rounded-xl text-center transition-all duration-300 transform group-hover:-translate-y-full group-hover:opacity-0"
+//       >
+//         <p className="text-xl md:text-2xl text-tc font-bold font-[family-name:var(--font-han-sans)]">
+//           {data.title}
+//         </p>
+//       </CardFooter>
+
+//       {/* 悬浮内容（完整展示） */}
+//       <div className="absolute inset-0 z-20 bg-gray-200/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 overflow-y-auto">
+//         <div className="h-full p-6 flex flex-col justify-between">
+//           <div>
+//             <p className="text-xl md:text-2xl font-bold text-tc font-[family-name:var(--font-han-sans)] mb-4">
+//               {data.title}
+//             </p>
+//             <p className="text-base md:text-xl text-tc font-[family-name:var(--font-sans-light)] whitespace-pre-wrap">
+//               {data.desc}
+//             </p>
+//           </div>
+//         </div>
+//       </div>
+//     </Card>
+//   );
+// };

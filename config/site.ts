@@ -162,4 +162,25 @@ export const siteConfig = {
           ]
         },
     ],
+
+    eduItems: [
+        {
+            title: "重构教学范式",
+            description:"解构静态课程为动态知识图谱，以自适应引擎转化单向传授为认知训练场。通过多模态学习分析捕捉隐式能力轨迹，实现规模化教育与深度个性化的融合的“人-师-机”体系，锻造未来人才的认知基座。",
+            image: "/images/paradigm.jpg",
+            reverse: false,
+        },
+        {
+            title: "重塑教师能力",
+            description:"赋能教师驾驭智能教学支持系统能力，通过学习行为预测精准定位认知盲区。转型为AI赋能教师，突破经验驱动型教学的效能边界，应对教育不确定性。",
+            image: "/images/ability.jpg",
+            reverse: true,
+        },
+        {
+            title: "革新课程体系",
+            description:"打破学科壁垒构建跨领域知识图谱，以动态演化机制实时注入前沿技术成果。通过智能诊断引擎生成个性化学习路径，使课程体系融入AI，构建未来社会的认知免疫基因。",
+            image: "/images/curriculum.jpg",
+            reverse: false,
+        },
+    ]
 }

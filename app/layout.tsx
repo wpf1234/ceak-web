@@ -15,6 +15,16 @@ const hanSans = localFont({
   variable: "--font-han-sans",
 })
 
+const hanSansLight = localFont({
+  src: [
+    {
+      path: "../public/fonts/SourceHanSansSC-Light-2.otf",
+      style: "light",
+    }
+  ],
+  variable: "--font-sans-light",
+})
+
 export const metadata: Metadata = {
   title: "Ceak Consulting",
   description: "思客咨询(Ceak Consulting)官网",
@@ -31,9 +41,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="light">
+    <html lang="en" className="light" suppressHydrationWarning>
       <body
-        className={`${hanSans.variable} antialiased pt-header min-w-[360px]`}
+        className={`${hanSans.variable, hanSansLight.variable} antialiased pt-header min-w-[360px]`}
       >
         <Providers>
         <div className="flex flex-col min-h-screen">
@@ -41,7 +51,7 @@ export default function RootLayout({
             <Header />
 
             {/* 页面内容区域 */}
-            <main className="flex-1 w-full max-w-[1920px] mx-auto">
+            <main className="flex-1 w-full max-w-layout mx-auto">
               {children}
             </main>
 

@@ -36,15 +36,13 @@ export const MiddleContent = () => {
   }, []);
 
   return (
-    <div className="w-full max-w-screen-2xl mx-auto flex flex-col gap-20">
+    <div className="w-full mx-auto flex flex-col gap-20">
       {/* 上：轮播卡片 */}
-      <section className="w-full max-w-screen-2xl min-h-[80vh] flex flex-col mt-6 gap-0 ">
-        {/* 轮播卡片区域，占比80% */}
-        <div className="flex-grow-[4] basis-0 
-        flex flex-col items-start justify-start h-full"
-        >
-          <div className="w-full flex items-center h-full bg-gray-300">
-            {/* 左侧按钮 */}
+      <section className="w-full h-screen flex flex-col">
+        {/* 上方轮播卡片区域，占 80% */}
+        <div className="flex-grow-[4] basis-0 flex flex-col items-start justify-start min-h-0">
+          <div className="w-full flex items-center h-full bg-gray-100 overflow-hidden">
+            {/* 左按钮 */}
             <Button
               className="text-xl text-gray-800 bg-transparent hover:text-primary transition-colors duration-300 rounded-full"
               onPress={() => handlePrevSlide()}
@@ -53,8 +51,8 @@ export const MiddleContent = () => {
               <ChevronLeftIcon className="w-8 h-8" />
             </Button>
 
-            {/* 轮播卡片区域 */}
-            <div className="flex-1 rounded-3xl overflow-hidden h-full flex-shrink-0">
+            {/* 轮播内容区域 */}
+            <div className="flex-1 rounded-3xl overflow-hidden h-full flex-shrink-0 min-h-0">
               <div
                 className="flex transition-transform duration-500 ease-in-out h-full w-full"
                 style={{ transform: `translateX(-${currentSlide * 100}%)` }}
@@ -65,48 +63,34 @@ export const MiddleContent = () => {
                     isBlurred
                     shadow="none"
                     fullWidth
-                    className="w-full h-full flex-shrink-0"
+                    className="w-full h-full flex-shrink-0 min-h-0"
                   >
-                    <CardBody className="p-0 m-0 h-full">
-                      <div className="flex flex-col md:flex-row w-full h-full">
-                        {/* 左侧图片区域 */}
-                        <div 
-                        className="w-full md:w-1/2 h-auto 
-                        bg-gray-300 flex justify-center items-center"
-                        >
+                    <CardBody className="p-0 m-0 h-full min-h-0">
+                      <div className="flex flex-col bg-gray-100 md:flex-row w-full h-full min-h-0 py-10 md:py-0">
+                        {/* 左图 */}
+                        <div className="w-full md:w-1/2 bg-gray-100 flex justify-center items-center min-h-0">
                           <HeroImage
                             alt="banner"
                             src={item.img}
                             className="object-cover w-full h-full 
-                            max-h-[400px] md:max-h-full 
-                            aspect-video md:aspect-auto"
+                               md:max-h-full 
+                              aspect-video md:aspect-auto"
                             radius="lg"
                           />
                         </div>
 
-                        {/* 右侧内容区域 */}
-                        <div className="w-full md:w-1/2 flex flex-col h-full p-6 md:p-8 gap-6 bg-gray-300">
-                          <div className="flex flex-col gap-4 pt-32 md:pt-40">
-                            <p className="text-3xl md:text-5xl lg:text-6xl text-hc font-bold font-[family-name:var(--font-han-sans)] leading-tight">
+                        {/* 右内容 */}
+                        <div className="w-full md:w-1/2 flex flex-col h-full p-12 md:p-8 gap-6 bg-gray-100 overflow-y-auto min-h-0">
+                          <div className="flex flex-col gap-4 pt-6 pt-10 md:pt-40 md:md:pt-52">
+                            <p className="text-3xl md:text-4xl lg:text-6xl text-hc font-bold font-[family-name:var(--font-han-sans)] leading-tight">
                               {item.title1}
                             </p>
-                            <p className="text-3xl md:text-5xl lg:text-6xl text-hc font-bold font-[family-name:var(--font-han-sans)] leading-tight">
+                            <p className="text-3xl md:text-4xl lg:text-6xl text-hc font-bold font-[family-name:var(--font-han-sans)] leading-tight">
                               {item.title2}
                             </p>
-                            <p className="text-base md:text-xl lg:text-lg text-tc font-[family-name:var(--font-han-sans)]">
+                            <p className="text-lg md:text-xl lg:text-2xl text-tc font-[family-name:var(--font-sans-light)]">
                               {item.content}
                             </p>
-                          </div>
-
-                          <div className="flex md:justify-end justify-center mt-8 md:mt-14">
-                            <Button
-                              className="bg-primary text-md md:text-base font-[family-name:var(--font-han-sans)] text-white"
-                              href="#"
-                              radius="full"
-                              size="sm"
-                            >
-                              了解更多
-                            </Button>
                           </div>
                         </div>
                       </div>
@@ -116,7 +100,7 @@ export const MiddleContent = () => {
               </div>
             </div>
 
-            {/* 右侧按钮 */}
+            {/* 右按钮 */}
             <Button
               className="text-xl text-gray-800 bg-transparent hover:text-primary transition-colors duration-300 rounded-full"
               onPress={() => handleNextSlide()}
@@ -127,22 +111,21 @@ export const MiddleContent = () => {
           </div>
         </div>
 
-        {/* CEAK聚焦部分，占比20% */}
-        <div className="flex-grow-[1] basis-0 flex items-center justify-center w-full md:w-1/2 mx-auto mt-20 h-full">
-          <div 
-          className="w-full bg-white rounded-2xl shadow border 
-          px-6 py-3 flex flex-col md:flex-row 
-          items-center justify-center gap-y-2 md:gap-x-8"
+        {/* 下方 CEAK 聚焦，占 20% */}
+        <div className="flex-grow basis-[20%] flex items-center justify-center w-full px-4 mt-4 md:mt-6">
+          <div
+            className="w-full max-w-6xl bg-white rounded-3xl shadow border px-6 py-4
+              flex flex-col md:flex-row items-center justify-center gap-y-3 md:gap-x-10"
           >
-            <div className="text-base md:text-xl text-gray-700 font-[family-name:var(--font-han-sans)] uppercase tracking-widest font-medium whitespace-nowrap">
+            <div className="text-sm md:text-xl text-gray-700 font-[family-name:var(--font-han-sans)] uppercase tracking-widest font-medium whitespace-nowrap">
               CEAK聚焦
             </div>
-            <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-1 whitespace-nowrap overflow-x-auto">
+            <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 whitespace-nowrap overflow-x-auto">
               {siteConfig.breadcrumbs.map((item) => (
                 <a
                   key={item}
                   href="#"
-                  className="text-base md:text-xl font-bold uppercase text-tc font-[family-name:var(--font-han-sans)] border-b-2 border-black/80 hover:border-primary transition-all cursor-pointer"
+                  className="text-sm md:text-xl font-bold uppercase text-tc font-[family-name:var(--font-han-sans)] border-b-2 border-black/80 hover:border-primary transition-all cursor-pointer"
                 >
                   {item}
                 </a>
@@ -163,36 +146,38 @@ export const MiddleContent = () => {
           <div className="flex-1 flex flex-col justify-between h-full relative">
             <div>
               <p className="text-5xl md:text-7xl text-tc font-bold mb-8 font-[family-name:var(--font-han-sans)]">关于CEAK</p>
-              <p className="text-tc text-sm md:text-lg text-dmd font-[family-name:var(--font-han-sans)] leading-relaxed">
+              <p className="text-tc text-base md:text-xl text-dmd font-[family-name:var(--font-sans-light)] leading-relaxed">
                 专注于为高校提供人工智能领域的全方位咨询与解决方案，涵盖AI课程建设、精品课拍摄、教师赋能、应用规划及项目孵化等服务。我们汇聚教育、技术与产业专家，致力于推动AI与学科的深度融合，助力高校提升教学质量与科研创新能力，打造面向未来的教育新生态。思客咨询，以专业与创新陪伴高校共创卓越。
               </p>
             </div>
             {/* 了解更多按钮 */}
             <div className="py-5 mt-24 flex justify-start">
               <button
-                  className="group flex items-center border-2 border-black text-black font-bold px-6 py-2 rounded transition-colors duration-300 hover:bg-black/10
-                  hover:text-black hover:border-black relative overflow-hidden self-start"
-                  style={{ fontFamily: "var(--font-han-sans)" }}
-                  onClick={() => window.location.href = "/about"}
+                className="group relative flex items-center border-2 border-black text-black font-bold px-6 py-2 rounded overflow-hidden transition-colors duration-300 hover:bg-black/10 hover:text-black"
+                style={{ fontFamily: "var(--font-han-sans)" }}
+                onClick={() => window.location.href = "/about"}
               >
-                  {/* ✅ 动画容器 */}
-                  <span className="block relative w-full overflow-hidden">
-                  {/* 默认状态：了解更多 → */}
-                  <span className="flex items-center justify-center gap-2 transition-transform duration-500 group-hover:translate-x-full">
-                      了解更多
-                      {/* <ArrowRight className="w-4 h-4" /> */}
-                      <span className="ml-2">→</span>
-                  </span>
+                {/* 左侧滑入箭头 */}
+                <span
+                  className="absolute left-4 opacity-0 -translate-x-4 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0"
+                >
+                  →
+                </span>
 
-                  {/* 悬停状态：→ 了解更多 */}
-                  <span className="flex items-center justify-center gap-2 absolute top-0 left-0 w-full transition-transform duration-500 translate-x-[-100%] group-hover:translate-x-0">
-                      {/* <ArrowRight className="w-4 h-4" /> */}
-                      <span className="mr-2">→</span>
-                      了解更多
-                  </span>
-                  </span>
+                {/* 文本内容，右移一点 */}
+                <span className="relative ml-2 flex items-center font-[family-name:var(--font-han-sans)] transition-transform duration-300 group-hover:translate-x-2">
+                  了解更多
+                </span>
+
+                {/* 右侧滑出箭头 */}
+                <span
+                  className="ml-2 transition-transform duration-300 group-hover:translate-x-4 opacity-100 group-hover:opacity-0"
+                >
+                  →
+                </span>
               </button>
             </div>
+
           </div>
 
           {/* 右侧图片区域 */}
@@ -227,13 +212,13 @@ export const MiddleContent = () => {
           {/* 右侧内容区域 */}
           <div className="flex-1 flex flex-col justify-between h-full relative px-4 md:px-8">
             <div>
-              <div className="text-sm md:text-base text-tc font-[family-name:var(--font-han-sans)] mt-12 md:mt-20">
+              <div className="text-sm md:text-lg text-tc font-[family-name:var(--font-sans-light)] mt-12 md:mt-20">
                 职业发展
               </div>
               <p className="text-3xl md:text-5xl text-tc font-bold mt-6 md:mt-10 font-[family-name:var(--font-han-sans)]">
                 用AI共创未来教育新篇章
               </p>
-              <p className="text-tc text-base md:text-2xl mt-6 md:mt-9 font-[family-name:var(--font-han-sans)] leading-relaxed">
+              <p className="text-tc text-lg md:text-2xl mt-6 md:mt-9 font-[family-name:var(--font-sans-light)] leading-relaxed">
                 促进公司、行业和社会的创新认知
               </p>
             </div>

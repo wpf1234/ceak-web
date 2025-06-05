@@ -16,5 +16,16 @@ html, body, #__next {
 }
 
 .clip-trapezoid {
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 90%);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 95%);
+}
+
+/* 覆盖 HeroUI Navbar 内部 header 的 max-width 限制 */
+:where(nav) > header {
+  max-width: 1920px !important;
+}
+
+#application {
+  position: relative;
+  padding-top: 112px;   /* 这里的100px根据导航栏高度调整 */
+  margin-top: -100px;
 }

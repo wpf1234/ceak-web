@@ -7,19 +7,19 @@ export default function ContactUs() {
   return (
     <div className=" mx-auto bg-white space-y-16">
       {/* 上部：图片 */}
-      <div className="w-full">
+      <div className="w-full h-[40vh] sm:h-[48vh] lg:h-[42vh] relative">
         <Image
           src="/images/contact.jpg" // 请替换为实际图片路径
           alt="联系我们"
           radius="none"
-          className="w-full h-auto object-cover"
+          className="w-full h-[40vh] sm:h-[48vh] lg:h-[42vh] object-cover"
         />
       </div>
 
       {/* 中部：地址信息 */}
-      <div className="text-start space-y-4 px-0 md:px-40">
+      <div className="text-start space-y-4 px-10 md:px-40">
         <p className="text-3xl md:text-5xl md:md:text-7xl font-bold font-[family-name:var(--font-han-sans)] text-tc">昆明办公室</p>
-        <div className="text-base md:text-lg pt-10 font-[family-name:var(--font-han-sans)] text-tcleading-relaxed">
+        <div className="text-base md:text-lg pt-10 font-[family-name:var(--font-sans-light)] text-tcleading-relaxed">
           <p>地址：云南省昆明市东风东路1号东方广场C2座9层</p>
           <p>邮政编号：650021</p>
           <p>联系电话：( +86 ) 0871 - 8xxx xxxx</p>
@@ -28,10 +28,10 @@ export default function ContactUs() {
       </div>
 
       {/* 下部：留言表单 */}
-      <div className="space-y-6 px-0 md:px-40 pb-20">
+      <div className="space-y-6 px-10 md:px-40 pb-20">
         <div className="text-start space-y-2">
           <p className="text-3xl md:text-5xl md:md:text-7xl font-semibold font-[family-name:var(--font-han-sans)] text-tc">给我们留言</p>
-          <p className="text-lg md:text-2xl text-tc font-[family-name:var(--font-han-sans)] py-10">
+          <p className="text-lg md:text-2xl text-tc font-[family-name:var(--font-sans-light)] py-10">
             感谢您对CEAK的关注，请填写以下信息与我们联系。
           </p>
         </div>
@@ -50,11 +50,10 @@ export default function ContactUs() {
             items-center md:justify-end justify-start whitespace-nowrap
             text-tc font-medium font-[family-name:var(--font-han-sans)]"
             >
-              姓名<span className="text-red-500">*</span>
+              姓名
             </label>
             <input
               type="text"
-              required
               placeholder="请输入您的姓名"
               className="w-full flex-1 
                 text-base md:text-xl 
@@ -149,7 +148,7 @@ export default function ContactUs() {
           <div className="flex justify-center">
             <Button
               type="submit"
-              className="px-6 py-2 text-primary rounded-md"
+              className="px-10 py-2 text-primary rounded-md"
               color="primary" 
               variant="ghost"
               size='lg'

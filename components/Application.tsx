@@ -6,11 +6,11 @@ export const ApplicationSection = () => {
 
   return (
     <section id="application" className="w-full px-6 py-20 bg-white">
-      <p className="text-4xl md:text-5xl md:md:text-7xl font-bold mb-10 text-left font-[family-name:var(--font-han-sans)]">
+      <p className="text-5xl md:text-6xl md:md:text-8xl font-bold mb-10 text-left font-[family-name:var(--font-han-sans)]">
         立即申请
       </p>
 
-      <div className="bg-gray-300 w-full max-w-[1440px] min-h-[800px] mx-auto p-12 rounded-3xl shadow-md">
+      <div className="bg-gray-100 w-full max-w-[1440px] min-h-[800px] mx-auto p-12 rounded-3xl shadow-md">
         <form
             onSubmit={(e) => {
                 e.preventDefault();

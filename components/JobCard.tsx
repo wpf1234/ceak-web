@@ -10,7 +10,7 @@ interface JobCardProps {
 
 export const JobCard: React.FC<JobCardProps> = ({ job, index }) => {
   const isPrimary = index % 2 === 0;
-  const bgColor = isPrimary ? "bg-primary" : "bg-gray-300";
+  const bgColor = isPrimary ? "bg-primary" : "bg-gray-100";
   const textColor = isPrimary ? "text-white" : "text-tc";
   const dotColor = isPrimary ? "bg-white" : "bg-tc";
 
@@ -23,16 +23,16 @@ export const JobCard: React.FC<JobCardProps> = ({ job, index }) => {
       initial="hidden"
       animate={inView ? "visible" : "hidden"}
       transition={{ duration: 0.5, ease: "easeOut" }}
-      className={`w-full max-w-[1700px] min-h-[380px] px-10 py-8 rounded-2xl ${bgColor} ${textColor} hover:shadow-xl`}
+      className={`w-full max-w-[1700px] min-h-[380px] px-20 py-10 rounded-3xl ${bgColor} ${textColor} hover:shadow-xl`}
     >
-      <p className="text-3xl md:text-5xl font-bold mb-6">{job.title}</p>
-      <p className="text-2xl md:text-3xl mb-6">{job.description}</p>
-      <p className="text-xl md:text-3xl mb-4">{job.detail}</p>
+      <p className="text-3xl md:text-5xl font-bold font-[family-name:var(--font-han-sans)] mb-6">{job.title}</p>
+      <p className="text-xl md:text-3xl mb-6 font-[family-name:var(--font-sans-light)]">{job.description}</p>
+      <p className="text-xl md:text-3xl mb-4 font-[family-name:var(--font-sans-light)]">{job.detail}</p>
       <ul className="list-none space-y-2">
         {job.requirements.map((req, i) => (
           <li key={i} className="flex items-start gap-2">
             <span className={`w-2 h-2 mt-2 rounded-full ${dotColor}`}></span>
-            <span className="text-xl md:text-3xl">{req}</span>
+            <span className="text-xl md:text-3xl font-[family-name:var(--font-sans-light)]">{req}</span>
           </li>
         ))}
       </ul>
