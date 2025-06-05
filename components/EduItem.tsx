@@ -81,7 +81,7 @@ export default function EduSectionItem({ section, index }: EduSectionItemProps) 
               {section.title}
             </p>
 
-            <div className="md:hidden">
+            {/* <div className="md:hidden">
               <HeroImage
                 src={section.image}
                 alt={section.title}
@@ -89,7 +89,7 @@ export default function EduSectionItem({ section, index }: EduSectionItemProps) 
                 height="100%"
                 className="rounded-2xl w-full h-auto object-cover"
               />
-            </div>
+            </div> */}
 
             <p className="text-lg md:text-2xl text-tc leading-relaxed font-[family-name:var(--font-sans-light)] pt-6">
               {section.description}
