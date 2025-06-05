@@ -143,7 +143,7 @@ export const MiddleContent = () => {
         {/* ✅ 响应式修改：主结构支持手机端纵排 */}
         <div className="flex h-full flex-col md:flex-row gap-6">
           {/* 左侧文字区域 */}
-          <div className="flex-1 flex flex-col justify-between h-full relative">
+          <div className="flex-1 flex flex-col justify-between h-full relative px-4">
             <div>
               <p className="text-5xl md:text-7xl text-tc font-bold mb-8 font-[family-name:var(--font-han-sans)]">关于CEAK</p>
               <p className="text-tc text-base md:text-xl text-dmd font-[family-name:var(--font-sans-light)] leading-relaxed">

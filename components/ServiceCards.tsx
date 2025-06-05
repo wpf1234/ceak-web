@@ -27,13 +27,13 @@ export const ServiceCards = () => {
   return (
     <section className="w-full flex flex-col gap-6 relative">
       {/* 标题 */}
-      <p className="text-5xl md:text-7xl text-tc font-bold whitespace-nowrap font-[family-name:var(--font-han-sans)] mb-8 z-10">
+      <p className="text-5xl md:text-7xl text-tc font-bold whitespace-nowrap font-[family-name:var(--font-han-sans)] mb-8 z-10 px-4">
         探索我们的服务
       </p>
 
       {/* ✅ SVG 背景梯形 */}
       <svg
-        className="absolute top-8 left-0 w-full pointer-events-none z-0 mt-20"
+        className="absolute top-8 left-0 w-full pointer-events-none z-0 mt-20 px-1 md:px-4"
         viewBox="0 0 100 100"
         preserveAspectRatio="none"
         style={{ height: "min(600px, 50vw)", minHeight: "600px" }}
