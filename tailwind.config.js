@@ -13,6 +13,7 @@ module.exports = {
         icon: '#f2f2f2',       // Icon的颜色
         hc: '#333333fc',
         tc: '#333333',
+        primaryHover: '#186E95',
       }, 
       // height: {
       //   '80svh': '80svh',

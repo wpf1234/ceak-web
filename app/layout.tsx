@@ -4,6 +4,8 @@ import "./globals.css";
 import { Providers } from "./providers";
 import { Header } from "../components/Header";
 import { FootBar } from "../components/Footbar";
+import { CookieBanner } from "../components/CookieBanner";
+import { CookieProvider } from "../components/cookie-context";
 
 const hanSans = localFont({
   src:[
@@ -45,6 +47,7 @@ export default function RootLayout({
       <body
         className={`${hanSans.variable, hanSansLight.variable} antialiased pt-header min-w-[360px]`}
       >
+        <CookieProvider>
         <Providers>
         <div className="flex flex-col min-h-screen">
             {/* 顶部导航栏 */}
@@ -58,7 +61,10 @@ export default function RootLayout({
             {/* 底部导航栏 */}
             <FootBar />
           </div>
+          {/* Cookie 提示横幅（首次访问 + 全局挂载） */}
+          <CookieBanner />
         </Providers>
+        </CookieProvider>
       </body>
     </html>
   );
