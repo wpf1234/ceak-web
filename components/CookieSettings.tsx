@@ -54,7 +54,7 @@ export default function CookieSettings({
             Cookie 设置
           </DialogTitle>
 
-          <p className="text-sm text-gray-600 mb-6">
+          <p className="text-base text-tc mb-6  ">
             我们使用 cookie 提升您的浏览体验，您可以自定义不同类型的 cookie 设置。
           </p>
 
@@ -62,7 +62,7 @@ export default function CookieSettings({
             {/* 功能类 Cookies */}
             <div className="flex items-start justify-between gap-4 border-b pb-3">
               <div>
-                <p className="font-medium text-gray-800">必要功能 Cookie</p>
+                <p className="font-medium text-tc">必要功能 Cookie</p>
                 <p className="text-sm text-gray-500">
                   网站运行所必需，无法关闭。
                 </p>
@@ -79,7 +79,7 @@ export default function CookieSettings({
             {/* 分析类 Cookies */}
             <div className="flex items-start justify-between gap-4 border-b pb-3">
               <div>
-                <p className="font-medium text-gray-800">分析类 Cookie</p>
+                <p className="font-medium text-tc">分析类 Cookie</p>
                 <p className="text-sm text-gray-500">
                   用于收集用户行为数据，帮助我们优化服务。
                 </p>
