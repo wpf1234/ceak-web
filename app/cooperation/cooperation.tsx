@@ -32,7 +32,7 @@ export default function CooperationPage() {
           <div className="w-full my-10 rounded-3xl overflow-hidden shadow-lg aspect-video">
             <video
               className="w-full h-full object-cover"
-              src="/video/AIVideo.mp4"
+              src="/video/AiVideo.mp4"
               autoPlay
               muted
               playsInline
