@@ -10,7 +10,7 @@ import {
 } from "@heroui/react";
 import { useState, useEffect } from "react";
 import { ChevronLeftIcon, ChevronRightIcon } from "./icons";
-import { ServiceCards } from "./ServiceCards";
+import {ServiceCards}  from "./ServiceCards";
 
 export const MiddleContent = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -40,11 +40,11 @@ export const MiddleContent = () => {
       {/* 上：轮播卡片 */}
       <section className="w-full h-screen flex flex-col">
         {/* 上方轮播卡片区域，占 80% */}
-        <div className="flex-grow-[4] basis-0 flex flex-col items-start justify-start min-h-0 ">
-          <div className="w-full flex items-center h-full bg-gray-100 overflow-hidden">
+        <div className="flex-grow-[5] basis-0 flex flex-col items-start justify-start min-h-0 px-2">
+          <div className="w-full flex items-center h-full bg-gray-100 ">
             {/* 左按钮 */}
             <Button
-              className="text-xl text-gray-600 bg-transparent hover:text-primary transition-colors duration-300 rounded-full"
+              className="text-xl text-gray-600 bg-transparent hover:text-primary transition-colors z-10 duration-300 rounded-full"
               onPress={() => handlePrevSlide()}
               isIconOnly
             >
@@ -81,7 +81,7 @@ export const MiddleContent = () => {
 
                         {/* 右内容 */}
                         <div className="w-full md:w-1/2 flex flex-col h-full p-12 md:p-8 gap-6 bg-gray-100 min-h-0">
-                          <div className="flex flex-col gap-4 pt-6 pt-10 md:pt-64 md:md:pt-60">
+                          <div className="flex flex-col gap-4 pt-6 pt-10 md:pt-80 md:md:pt-46">
                             <p className="text-3xl md:text-4xl lg:text-6xl text-hc font-bold font-[family-name:var(--font-han-sans)] leading-tight">
                               {item.title1}
                             </p>
@@ -102,7 +102,7 @@ export const MiddleContent = () => {
 
             {/* 右按钮 */}
             <Button
-              className="text-xl text-gray-600 bg-transparent hover:text-primary transition-colors duration-300 rounded-full"
+              className="text-xl text-gray-600 bg-transparent hover:text-primary transition-colors z-10 duration-300 rounded-full"
               onPress={() => handleNextSlide()}
               isIconOnly
             >
@@ -112,9 +112,9 @@ export const MiddleContent = () => {
         </div>
 
         {/* 下方 CEAK 聚焦，占 20% */}
-        <div className="flex-grow basis-[20%] flex items-center justify-center w-full px-4 mt-4 md:mt-6">
+        <div className="flex-grow basis-[10%] flex items-center justify-center w-full px-4 mt-4 md:mt-6">
           <div
-            className="w-full max-w-6xl bg-white rounded-3xl shadow border px-6 py-4
+            className="w-full max-w-xl bg-white rounded-3xl shadow border px-6 py-4
               flex flex-col md:flex-row items-center justify-center gap-y-3 md:gap-x-10"
           >
             <div className="text-sm md:text-xl text-gray-700 font-[family-name:var(--font-han-sans)] uppercase tracking-widest font-medium whitespace-nowrap">
@@ -124,7 +124,6 @@ export const MiddleContent = () => {
               {siteConfig.breadcrumbs.map((item) => (
                 <a
                   key={item}
-                  href="#"
                   className="text-sm md:text-xl font-bold uppercase text-tc font-[family-name:var(--font-han-sans)] border-b-2 border-black/80 hover:border-primary transition-all cursor-pointer"
                 >
                   {item}
@@ -145,7 +144,7 @@ export const MiddleContent = () => {
           {/* 左侧文字区域 */}
           <div className="flex-1 flex flex-col justify-between h-full relative px-4">
             <div>
-              <p className="text-6xl md:text-8xl text-tc font-bold mb-8 text-nowrap font-[family-name:var(--font-han-sans)]">关于CEAK</p>
+              <p className="text-6xl md:text-8xl text-tc mb-8 text-nowrap font-[family-name:var(--font-han-sans)]">关于CEAK</p>
               <p className="text-tc text-base md:text-xl text-dmd leading-relaxed font-[family-name:var(--font-sans-light)] pt-2 md:pt-6">
                 专注于为高校提供人工智能领域的全方位咨询与解决方案，涵盖AI课程建设、精品课拍摄、教师赋能、应用规划及项目孵化等服务。我们汇聚教育、技术与产业专家，致力于推动AI与学科的深度融合，助力高校提升教学质量与科研创新能力，打造面向未来的教育新生态。思客咨询，以专业与创新陪伴高校共创卓越。
               </p>
@@ -224,7 +223,7 @@ export const MiddleContent = () => {
               <div className="text-sm md:text-lg text-tc font-[family-name:var(--font-sans-light)] mt-12 md:mt-20">
                 职业发展
               </div>
-              <p className="text-4xl md:text-6xl text-tc font-bold mt-6 md:mt-10 font-[family-name:var(--font-han-sans)]">
+              <p className="text-4xl md:text-6xl text-tc mt-6 md:mt-10 font-[family-name:var(--font-han-sans)]">
                 用AI共创未来教育新篇章
               </p>
               <p className="text-tc text-xl md:text-2xl mt-6 md:mt-9 font-[family-name:var(--font-sans-light)] leading-relaxed">

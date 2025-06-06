@@ -40,9 +40,9 @@ export const FootBar = () => {
       {/* 底部链接 */}
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-center px-6 text-base font-[family-name:var(--font-sans-light)]">
         <div className="flex gap-8 mb-2 md:mb-0">
-          <a href="#" className="underline underline-offset-8">法律声明</a>
-          <a href="#" className="underline underline-offset-8">使用条款</a>
-          <a href="#" className="underline underline-offset-8">Cookie政策</a>
+          <a className="underline underline-offset-8">法律声明</a>
+          <a className="underline underline-offset-8">使用条款</a>
+          <a className="underline underline-offset-8">Cookie政策</a>
         </div>
       </div>
       <div 

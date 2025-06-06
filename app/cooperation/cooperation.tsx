@@ -76,7 +76,7 @@ export default function CooperationPage() {
           <div className="absolute inset-0 bg-black/30 flex items-center rounded-2xl">
             <div className="w-full flex flex-col md:flex-row justify-center items-center md:items-center gap-6 text-white text-center md:text-left px-4">
               {/* 左侧文字 */}
-              <div className="text-xl md:text-3xl whitespace-nowrap font-bold font-[family-name:var(--font-han-sans)] leading-snug">
+              <div className="text-2xl md:text-4xl whitespace-nowrap font-[family-name:var(--font-han-sans)] leading-snug">
                 我们正在建设明天的教育。
               </div>
 

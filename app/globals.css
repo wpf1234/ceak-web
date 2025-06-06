@@ -29,3 +29,9 @@ html, body, #__next {
   padding-top: 185px;   /* 这里的100px根据导航栏高度调整 */
   margin-top: -60px;
 }
+
+@media (min-width: 768px) {
+  .svg-bg-minh {
+    min-height: 600px !important;
+  }
+}
