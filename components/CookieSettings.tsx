@@ -13,7 +13,7 @@ export default function CookieSettings({
   const [open, setOpen] = useState(defaultOpen);
 
   // Cookie 开关状态
-  const [functionalCookies, setFunctionalCookies] = useState(true); // 必需，默认启用
+  const [functionalCookies] = useState(true); // 必需，默认启用
   const [analyticsCookies, setAnalyticsCookies] = useState(false);
   const [marketingCookies, setMarketingCookies] = useState(false);
 
