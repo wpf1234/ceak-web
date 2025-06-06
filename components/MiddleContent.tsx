@@ -40,7 +40,7 @@ export const MiddleContent = () => {
       {/* 上：轮播卡片 */}
       <section className="w-full h-screen flex flex-col">
         {/* 上方轮播卡片区域，占 80% */}
-        <div className="flex-grow-[5] basis-0 flex flex-col items-start justify-start min-h-0 px-2">
+        <div className="flex-grow-[5] basis-0 flex flex-col items-start justify-start min-h-0 px-2 pt-1">
           <div className="w-full flex items-center h-full bg-gray-100 ">
             {/* 左按钮 */}
             <Button
@@ -52,7 +52,7 @@ export const MiddleContent = () => {
             </Button>
 
             {/* 轮播内容区域 */}
-            <div className="flex-1 rounded-3xl overflow-hidden h-full flex-shrink-0 min-h-0 mt-2 md:mt-0">
+            <div className="flex-1 rounded-3xl overflow-hidden h-full flex-shrink-0 min-h-0 mt-0 md:mt-0">
               <div
                 className="flex transition-transform duration-500 ease-in-out h-full w-full"
                 style={{ transform: `translateX(-${currentSlide * 100}%)` }}
