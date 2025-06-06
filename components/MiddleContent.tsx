@@ -39,7 +39,7 @@ export const MiddleContent = () => {
     <div className="w-full mx-auto flex flex-col gap-20">
       {/* 上：轮播卡片 */}
       <section className="w-full h-screen flex flex-col">
-        {/* 上方轮播卡片区域，占 80% */}
+        {/* 上方轮播卡片区域，占 90% */}
         <div className="flex-grow-[5] basis-0 flex flex-col items-start justify-start min-h-0 px-2 pt-1">
           <div className="w-full flex items-center h-full bg-gray-100 ">
             {/* 左按钮 */}
@@ -111,7 +111,7 @@ export const MiddleContent = () => {
           </div>
         </div>
 
-        {/* 下方 CEAK 聚焦，占 20% */}
+        {/* 下方 CEAK 聚焦，占 10% */}
         <div className="flex-grow basis-[10%] flex items-center justify-center w-full px-4 mt-4 md:mt-6">
           <div
             className="w-full max-w-xl bg-white rounded-3xl shadow border px-6 py-4
@@ -140,12 +140,12 @@ export const MiddleContent = () => {
       {/* 中下：关于CEAK */}
       <section className="w-full flex flex-col md:flex-row items-center gap-8 mt-32">
         {/* ✅ 主结构：文字 + 图片 */}
-        <div className="flex h-full flex-col md:flex-row gap-6 w-full">
+        <div className="flex h-full flex-col md:flex-row gap-6 w-full mt-1 md:mt-12">
           {/* 左侧文字区域 */}
           <div className="flex-1 flex flex-col justify-between h-full relative px-4">
             <div>
-              <p className="text-6xl md:text-8xl text-tc mb-8 text-nowrap font-[family-name:var(--font-han-sans)]">关于CEAK</p>
-              <p className="text-tc text-base md:text-xl text-dmd leading-relaxed font-[family-name:var(--font-sans-light)] pt-2 md:pt-6">
+              <p className="text-5xl md:text-8xl text-tc mb-8 text-nowrap font-[family-name:var(--font-han-sans)]">关于CEAK</p>
+              <p className="text-tc text-lg md:text-2xl text-dmd leading-relaxed md:leading-relaxed font-[family-name:var(--font-sans-light)] pt-2 md:pt-6">
                 专注于为高校提供人工智能领域的全方位咨询与解决方案，涵盖AI课程建设、精品课拍摄、教师赋能、应用规划及项目孵化等服务。我们汇聚教育、技术与产业专家，致力于推动AI与学科的深度融合，助力高校提升教学质量与科研创新能力，打造面向未来的教育新生态。思客咨询，以专业与创新陪伴高校共创卓越。
               </p>
             </div>
@@ -177,7 +177,7 @@ export const MiddleContent = () => {
               alt="关于CEAK"
               width="100%"
               height="100%"
-              className="object-cover w-full h-full"
+              className="object-cover md:object-cover w-full h-full"
             />
           </div>
         </div>
