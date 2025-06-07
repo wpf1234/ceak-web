@@ -8,7 +8,7 @@ export const metadata = {
 
 export default function Legal() {
   return (
-    <div className="px-4 md:px-8 py-12 max-w-screen-lg mx-auto space-y-6 text-base md:text-lg text-tc leading-loose font-sans-light">
+    <div className="px-4 md:px-8 py-12 max-w-screen-2xl mx-auto space-y-6 text-base md:text-lg text-tc leading-loose font-sans-light">
       <p className="text-5xl md:text-7xl text-tc mb-8 font-[fanily-name:var(--font-han-sans)]">
         法律声明
       </p>

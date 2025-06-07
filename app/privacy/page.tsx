@@ -268,14 +268,14 @@ export const metadata = {
 
 export default function Privacy() {
   return (
-    <div className="px-4 md:px-8 py-10 leading-relaxed md:leading-relaxed text-tc font-[family-name:var(--font-san-light)]">
+    <div className="px-4 md:px-8 py-10 max-w-screen-2xl mx-auto leading-relaxed md:leading-relaxed text-tc font-[family-name:var(--font-san-light)]">
       <h1 className="text-5xl md:text-7xl text-tc font-bold font-[family-name:var(--font-han-sans)] mb-6">隐私政策</h1>
-      <p className="text-lg md:text-xl leading-relaxed md:leading-relaxed">
+      <p className="text-lg md:text-xl leading-relaxed md:leading-relaxed ">
         思客咨询（云南）有限公司及其关联公司（下文简称“思客咨询”、“我们”和“我们的”）深知隐私对您的重要性，并会尊重您的隐私。
         请在向思客咨询提交个人信息之前，阅读、了解本《隐私政策》（下文简称“本政策”）。本政策适用于显示本隐私政策、或链接至本隐私政策的思客咨询网站和产品、服务。
         特别的，本网站由思客咨询（云南）有限公司运营，思客咨询（云南）有限公司是该网站所收集的个人信息的个人信息处理者。
       </p>
-      <p className="text-lg md:text-xl leading-relaxed md:leading-relaxed">
+      <p className="text-lg md:text-xl leading-relaxed md:leading-relaxed ">
         本政策阐述了思客咨询如何处理您的个人信息，但本政策可能并不涉及所有可能的数据处理情境。
         有关收集产品或服务特定数据的信息可能由思客咨询在特定产品或服务发布的专门隐私通知或补充声明中阐述，或者在收集数据时提供的通知中发布。
       </p>
