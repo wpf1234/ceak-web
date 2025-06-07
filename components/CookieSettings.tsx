@@ -17,6 +17,9 @@ export default function CookieSettings({
   const [analyticsCookies, setAnalyticsCookies] = useState(false);
   const [marketingCookies, setMarketingCookies] = useState(false);
 
+  const expiryDate = new Date();
+  expiryDate.setFullYear(expiryDate.getFullYear() + 1);
+
   useEffect(() => {
     setOpen(defaultOpen);
   }, [defaultOpen]);
@@ -28,6 +31,8 @@ export default function CookieSettings({
       marketing: marketingCookies,
     };
     localStorage.setItem("cookie-settings", JSON.stringify(settings));
+    localStorage.setItem("cookieConsent", "true"); // 新增
+    localStorage.setItem("cookieConsentExpires", expiryDate.toISOString());
     setOpen(false);
     onClose();
   };

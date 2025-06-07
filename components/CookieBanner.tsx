@@ -8,8 +8,23 @@ export const CookieBanner = () => {
   const [showSettings, setShowSettings] = useState(false);
 
   useEffect(() => {
-    const cookieConsent = localStorage.getItem("cookieConsent");
-    if (!cookieConsent) {
+    // const cookieConsent = localStorage.getItem("cookieConsent");
+    // if (!cookieConsent) {
+    //   setShowBanner(true);
+    // }
+    const consent = localStorage.getItem("cookieConsent");
+    const expires = localStorage.getItem("cookieConsentExpires");
+
+    if (!consent) {
+      setShowBanner(true);
+      return;
+    }
+
+    if (expires && new Date(expires) < new Date()) {
+      // 过期
+      localStorage.removeItem("cookieConsent");
+      localStorage.removeItem("cookie-settings");
+      localStorage.removeItem("cookieConsentExpires");
       setShowBanner(true);
     }
   }, []);
@@ -34,12 +49,23 @@ export const CookieBanner = () => {
             <div className="flex items-center gap-3">
               <button
                 onClick={handleOpenSettings}
-                className="text-sm underline text-blue-600 hover:text-blue-800 transition"
+                className="text-sm underline text-blue-600 hover:text-blue-800 underline-offset-8 transition"
               >
                 管理偏好
               </button>
               <button
                 onClick={() => {
+                  // 保存用户同意信息
+                  localStorage.setItem(
+                    "cookie-settings",
+                    JSON.stringify({
+                      functional: true,
+                      analytics: true,
+                      marketing: true,
+                    })
+                  );
+                  localStorage.setItem("cookieConsent", "true"); // 标记已接受
+
                   handleCloseBanner();
                 }}
                 className="text-sm bg-primaryHover hover:bg-primary text-white px-4 py-2 rounded-md shadow"
